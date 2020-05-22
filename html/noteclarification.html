@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Treasurer: Page principale</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.PNG"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Treasurer
+   </div>
+   <div id="projectbrief">Cash management for your project</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Lo21 Projet</div>  </div>
+</div><!--header-->
+<div class="contents">
+<h1>Note Clarification </h1>
+<br/>
+<h2>I – Comptes</h2>
+<p>L'application doit permettre de gérer différents <b>comptes</b>, hiérarchisés en plusieurs catégories :</p>
+<ul>
+<li>Actifs : Argent disponible</li>
+<li>Passifs : Ce que l'on doit</li>
+<li>Recettes : Argent récolté</li>
+<li>Dépenses : Argent dépensé</li>
+</ul>
+<p>Ces comptes sont dits « <b>virtuels</b>» et découlent d’un seul compte : le compte <b>racine</b>. Les comptes <b>réels</b> dérivent de ces comptes virtuels. </p>
+<img src="structure.png"  alt="Compte Racine" />
+<p>Ces comptes peuvent faire l'objet de <b>transactions</b>.</p>
+<br/>
+<h2>II – Transactions</h2>
+<p>Les transactions représentent un échange de valeur entre des comptes. Si cette transaction concerne 2 comptes, on parle de <b>transaction simple</b>. Si la transaction concerne plus de 2 comptes, on parle de <b>transaction répartie</b>. Chaque transaction possède les attributs suivants :</p>
+<ul>
+<li>Une date</li>
+<li>Une référence</li>
+<li>Un mémo explicatif (le titre)</li>
+<li>Un ensemble de triplets : (Compte, Débit, Crédit) qui représentent les différentes <b>opérations</b> sur les comptes prenant part à la transaction. En fonction du type de compte, débit et crédit n'auront pas le même sens.</li>
+</ul>
+<p>Les transactions doivent respectés les règles suivantes :</p>
+<ul>
+<li>Au moins deux comptes doivent être impliqués</li>
+<li>Pas de montant négatif pour les opérations (crédit / débit). Si un montant négatif est utilisé, il faudra réaliser l'opération inverse avec un montant positif. (Passer par un débit négatif entrainera l'apparition d’un crédit positif).</li>
+<li>Pour chacun des triplets : (Compte, Débit, Crédit) une seule des deux opérations doit avoir une valeur positive. Il faudra <u>corriger</u> la transaction en cas de non-respect de cette règle.</li>
+<li>Une transaction est toujours équilibrée : la somme des débits est égale à la somme des crédits. Il faudra <u>empêcher</u> la transaction en cas de non-respect de cette règle.</li>
+</ul>
+<p>A la création de l'association sur notre application, des transactions devront être effectuée. Le solde initial d'un compte d'actif est créé à l'aide d'une transaction débitant le nouveau compte et créditant un compte de capitaux propres. Le solde initial d'un compte de passif est créé à l'aide d'une transaction <u>créditant</u> le nouveau compte et <u>débitant</u> un compte de capitaux propres.</p>
+<h2>III – Rapprochement</h2>
+<p>Le rapprochement consiste à figer des transactions passées en s'assurant de leur validité. Pour se faire, on compare le solde présent dans l'application et le solde réel. Si les deux soldes concordent, on marque les transactions effectuées comme étant « rapprochés ». Sinon, il faut laisser à l'utilisateur la possibilité de <u>corriger</u> les transactions.</p>
+<br/>
+<h2>IV – Clôture du livre</h2>
+<p>La clôture du livre consiste en la remise à zéro des comptes de recettes et de dépenses. Pour se faire, 3 transactions sont nécessaires :</p>
+<ul>
+<li>Une transaction répartie permettant de solder tous les comptes de dépense : Chaque compte de dépense est porté au crédit et on porte au débit un compte de passifs spécifique, le compte de Résultat avec la somme des dépenses. (On somme tout ce que l’on a payé)</li>
+<li>Une transaction répartie permettant de solder tous les comptes de recettes : Chaque compte de recette est porté au débit et on porte au crédit le compte de Résultat avec la somme des recettes (On somme tout ce que l’on a gagné).</li>
+<li>On transfère ensuite le Résultat sur un compte Excédent ou un compte Déficit (compte de passifs)</li>
+</ul>
+<br/>
+<h2>V – Rapportse</h2>
+<p>Plusieurs rapports devront pouvoir être générés :</p>
+<ul>
+<li>Le bilan : Total des créances et des dettes</li>
+<li>Le compte de résultat : Ensemble des recettes et des dépenses sur une période choisie par l'utilisateur</li>
+<li>Le résultat : Différence entre le total des recettes et le total des dépenses (Voir clôture du livre)</li>
+</ul>
+<br/>
+<h2>VI – Autres</h2>
+<p>Les informations utilisées par l'application devront être persistantes : il est nécessaire de les sauvegarder ! Pour ce faire, l'utilisation d'une base de données semble être la solution la plus simple.</p>
+<p>Le contexte de l'application doit également être sauvegardé. Par exemple, si l'utilisateur ferme l'application sur une page spécifique, c'est sur cette page que devra s'ouvrir l'application lors de la future utilisation. On peut également imaginer sauvegarder des préférences linguistiques, de devise utilisée etc.</p>
+<br/>
+<br/>
+<p align="right"><i>Lucas Bendyna</i></p>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><p align="center">© L&M&C&B&S</p><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>
