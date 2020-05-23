@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Connexion</class>
- <widget class="QMainWindow" name="Connexion">
+ <class>ConnexionView</class>
+ <widget class="QMainWindow" name="ConnexionView">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>814</width>
+    <width>1009</width>
     <height>711</height>
    </rect>
   </property>
@@ -90,7 +90,7 @@ background : rgb(255, 255, 255);
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="../ressources/logo.qrc">:/Logo/treasurer.svg</pixmap>
+             <pixmap>../ressources/logo.svg</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -256,9 +256,9 @@ background : rgb(255, 255, 255);
          <property name="geometry">
           <rect>
            <x>40</x>
-           <y>520</y>
+           <y>510</y>
            <width>371</width>
-           <height>31</height>
+           <height>33</height>
           </rect>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -329,8 +329,6 @@ border-radius: 5px;</string>
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="../ressources/logo.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

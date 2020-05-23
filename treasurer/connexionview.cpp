@@ -1,27 +1,19 @@
-#include <iostream>
-#include <QSqlQuery>
-#include <QSqlRecord>
-#include <QSqlError>
-#include <QDebug>
+#include "connexionview.h"
 
-#include "connexion.h"
-#include "ui_connexion.h"
-#include "databasemanager.h"
-
-Connexion::Connexion(QWidget *parent) :
+ConnexionView::ConnexionView(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::Connexion)
+    ui(new Ui::ConnexionView)
 {
     ui->setupUi(this);
     ui->connection_error->setVisible(false);
 }
 
-Connexion::~Connexion()
+ConnexionView::~ConnexionView()
 {
     delete ui;
 }
 
-void Connexion::on_connection_button_clicked()
+void ConnexionView::on_connection_button_clicked()
 {
     QSqlQuery query;
     query.prepare("SELECT id FROM association WHERE identifiant = :login AND mot_de_passe = :password");
@@ -31,7 +23,14 @@ void Connexion::on_connection_button_clicked()
     if(query.exec() && query.next())
     {
         int id = query.value(0).toInt();
+
+        CompteController* compteController = CompteController::getInstance();
+        compteController->setIdAssociation(id);
+        compteController->showComptes();
+        compteController->setSoldes();
+
         ui->connection_error->setVisible(false);
+        this->close();
     }
     else {
         ui->connection_error->setVisible(true);

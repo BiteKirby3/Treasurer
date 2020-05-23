@@ -3,18 +3,20 @@
 #include <QApplication>
 #include <QPushButton>
 
-#include "connexion.h"
+#include "connexionview.h"
 #include "databasemanager.h"
 
 using namespace std;
 
-int main(int countArg, char **listArg) {
+int main(int countArg, char **listArg)
+{
     QApplication app(countArg, listArg);
 
     DatabaseManager* dm = DatabaseManager::getInstance();
 
-    if(dm->login()) {
-        Connexion* connexion = new Connexion;
+    if(dm->login())
+    {
+        ConnexionView* connexion = new ConnexionView;
         connexion->show();
     }
 
