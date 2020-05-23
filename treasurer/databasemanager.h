@@ -7,17 +7,16 @@
 
 class DatabaseManager
 {
-private:
-    DatabaseManager() {};
-    QSqlDatabase db;
-    static DatabaseManager* dm;
-
-
 public:
     bool login();
     void logout();
     QSqlDatabase getDatabase();
     static DatabaseManager* getInstance();
+
+private:
+    DatabaseManager() {};
+    QSqlDatabase db;
+    static DatabaseManager* dm;
 };
 
 #endif // DATABASEMANAGER_H

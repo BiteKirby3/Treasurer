@@ -21,7 +21,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        connexion.cpp \
+        comptecontroller.cpp \
+        comptesview.cpp \
+        connexionview.cpp \
         databasemanager.cpp \
         main.cpp
 
@@ -31,13 +33,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 FORMS += \
-    connexion.ui
-
-RESOURCES += \
-    ../ressources/logo.qrc
+    comptesview.ui \
+    connexionview.ui
 
 HEADERS += \
-    connexion.h \
+    comptecontroller.h \
+    comptesview.h \
+    connexionview.h \
     databasemanager.h
 
 
