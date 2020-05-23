@@ -1,25 +1,22 @@
-#include <QCoreApplication>
 #include <QtSql>
 #include <iostream>
+#include <QApplication>
+#include <QPushButton>
 
-#define q2c(string) string.toStdString()
+#include "connexion.h"
+#include "databasemanager.h"
 
 using namespace std;
 
 int main(int countArg, char **listArg) {
-    QCoreApplication app(countArg, listArg);
-    cout << flush;
+    QApplication app(countArg, listArg);
 
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
-    db.setHostName("*********");
-    db.setUserName("*********");
-    db.setPassword("*********");
-    db.setDatabaseName("*********");
-    if(db.open()) {
-        cout << "Vous etes maintenant connecte a " << q2c(db.hostName()) << endl;
-        db.close();
+    DatabaseManager* dm = DatabaseManager::getInstance();
+
+    if(dm->login()) {
+        Connexion* connexion = new Connexion;
+        connexion->show();
     }
-    else { cout << "La connexion a echouee, desole : (" << q2c(db.lastError().text()) << ")" << endl; }
 
     return app.exec();
 }
