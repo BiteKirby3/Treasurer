@@ -39,3 +39,39 @@ void ComptesView::on_logout_button_clicked()
     connexion->show();
     this->close();
 }
+
+void ComptesView::on_detail_actifs_button_clicked()
+{
+    CompteView* compteView = new CompteView;
+    compteView->show();
+    compteView->setWindowTitle("Treasurer - Actifs");
+    compteView->setTypeCompteLabel("ACTIFS");
+    this->close();
+}
+
+void ComptesView::on_detail_passifs_button_clicked()
+{
+    CompteView* compteView = new CompteView;
+    compteView->show();
+    compteView->setWindowTitle("Treasurer - Passifs");
+    compteView->setTypeCompteLabel("PASSIFS");
+    this->close();
+}
+
+void ComptesView::on_detail_depenses_button_clicked()
+{
+    CompteView* compteView = new CompteView;
+    compteView->show();
+    compteView->setWindowTitle("Treasurer - Dépenses");
+    compteView->setTypeCompteLabel("DÉPENSES");
+    this->close();
+}
+
+void ComptesView::on_detail_recettes_button_clicked()
+{
+    CompteView* compteView = new CompteView;
+    compteView->show();
+    compteView->setWindowTitle("Treasurer - Recettes");
+    compteView->setTypeCompteLabel("RECETTES");
+    this->close();
+}

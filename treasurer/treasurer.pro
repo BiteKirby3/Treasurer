@@ -23,6 +23,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         comptecontroller.cpp \
         comptesview.cpp \
+        compteview.cpp \
         connexionview.cpp \
         databasemanager.cpp \
         main.cpp
@@ -34,13 +35,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 FORMS += \
     comptesview.ui \
+    compteview.ui \
     connexionview.ui
 
 HEADERS += \
     comptecontroller.h \
     comptesview.h \
+    compteview.h \
     connexionview.h \
     databasemanager.h
+
+RC_ICONS = ../ressources/logo.ico
 
 
 

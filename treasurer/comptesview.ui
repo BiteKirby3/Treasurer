@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1222</width>
-    <height>841</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,31 +58,6 @@
            <property name="leftMargin">
             <number>15</number>
            </property>
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="minimumSize">
-              <size>
-               <width>41</width>
-               <height>31</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>41</width>
-               <height>31</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap>../ressources/small-logo.svg</pixmap>
-             </property>
-             <property name="scaledContents">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
            <item>
             <widget class="QPushButton" name="comptes_button">
              <property name="font">
@@ -358,7 +333,7 @@ border-radius: 0px;
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
-             <widget class="QPushButton" name="connection_button">
+             <widget class="QPushButton" name="detail_actifs_button">
               <property name="minimumSize">
                <size>
                 <width>80</width>
@@ -571,7 +546,7 @@ border-radius: 0px;
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_9">
             <item>
-             <widget class="QPushButton" name="connection_button_4">
+             <widget class="QPushButton" name="detail_passifs_button">
               <property name="minimumSize">
                <size>
                 <width>80</width>
@@ -804,7 +779,7 @@ border-radius: 0px;
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_10">
             <item>
-             <widget class="QPushButton" name="connection_button_5">
+             <widget class="QPushButton" name="detail_depenses_button">
               <property name="minimumSize">
                <size>
                 <width>80</width>
@@ -1017,7 +992,7 @@ border-radius: 0px;
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item>
-             <widget class="QPushButton" name="connection_button_3">
+             <widget class="QPushButton" name="detail_recettes_button">
               <property name="minimumSize">
                <size>
                 <width>80</width>
