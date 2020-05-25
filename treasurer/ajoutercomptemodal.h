@@ -23,6 +23,8 @@ private slots:
     void on_cancel_button_clicked();
     void on_validate_button_clicked();
 
+    void on_virtuel_stateChanged(int arg1);
+
 private:
     Ui::AjouterCompteModal *ui;
     QString typeCompte;
