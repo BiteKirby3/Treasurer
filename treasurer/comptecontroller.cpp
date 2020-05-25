@@ -25,9 +25,9 @@ void CompteController::showComptes()
 double CompteController::getSoldeComptes(QString type)
 {
     QSqlQuery query;
-    query.prepare("SELECT SUM(solde) FROM compte WHERE type = :type AND id_association = :id_association");
+    query.prepare("SELECT SUM(solde) FROM compte WHERE type = :type AND id_association = :id");
     query.bindValue(":type", type);
-    query.bindValue(":id_association", this->idAssociation);
+    query.bindValue(":id", this->idAssociation);
 
     if(query.exec() && query.next())
     {
@@ -44,10 +44,10 @@ void CompteController::setIdAssociation(int id)
 }
 
 void CompteController::setSoldes() {
-    this->comptesview->setSoldeActifsLabel(getSoldeComptes("actifs"));
-    this->comptesview->setSoldePassifsLabel(getSoldeComptes("passifs"));
-    this->comptesview->setSoldeDepensesLabel(getSoldeComptes("depenses"));
-    this->comptesview->setSoldeRecettesLabel(getSoldeComptes("recettes"));
+    this->comptesview->setSoldeActifsLabel(getSoldeComptes("actif"));
+    this->comptesview->setSoldePassifsLabel(getSoldeComptes("passif"));
+    this->comptesview->setSoldeDepensesLabel(getSoldeComptes("depense"));
+    this->comptesview->setSoldeRecettesLabel(getSoldeComptes("recette"));
 }
 
 CompteController* CompteController::controller = nullptr;

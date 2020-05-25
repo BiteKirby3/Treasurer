@@ -19,10 +19,10 @@ class CompteView : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit CompteView(QWidget *parent = nullptr);
+    explicit CompteView(QString typeCompte, QWidget *parent = nullptr);
     ~CompteView();
-    void setTypeCompteLabel(QString typeCompte);
-    void creerArborescence(QString typeCompte);
+    void setTypeCompteLabel();
+    void creerArborescence();
 
 private slots:
     void on_comptes_button_clicked();
