@@ -26,13 +26,9 @@ public:
 
 private slots:
     void on_logout_button_clicked();
-
     void on_detail_actifs_button_clicked();
-
     void on_detail_passifs_button_clicked();
-
     void on_detail_depenses_button_clicked();
-
     void on_detail_recettes_button_clicked();
 
 private:

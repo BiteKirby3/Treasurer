@@ -13,7 +13,6 @@ class CompteController
 {
 public:
     int idAssociation;
-
     static CompteController* getInstance();
     void showComptes();
     double getSoldeComptes(QString type);

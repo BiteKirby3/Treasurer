@@ -42,36 +42,48 @@ void ComptesView::on_logout_button_clicked()
 
 void ComptesView::on_detail_actifs_button_clicked()
 {
+    QString typeCompte = "actifs";
     CompteView* compteView = new CompteView;
     compteView->show();
     compteView->setWindowTitle("Treasurer - Actifs");
-    compteView->setTypeCompteLabel("ACTIFS");
+    compteView->setTypeCompteLabel(typeCompte.toUpper());
+    compteView->creerArborescence(typeCompte);
+    compteView->selectPremierCompte(typeCompte);
     this->close();
 }
 
 void ComptesView::on_detail_passifs_button_clicked()
 {
+    QString typeCompte = "passifs";
     CompteView* compteView = new CompteView;
     compteView->show();
     compteView->setWindowTitle("Treasurer - Passifs");
-    compteView->setTypeCompteLabel("PASSIFS");
+    compteView->setTypeCompteLabel(typeCompte.toUpper());
+    compteView->creerArborescence(typeCompte);
+    compteView->selectPremierCompte(typeCompte);
     this->close();
 }
 
 void ComptesView::on_detail_depenses_button_clicked()
 {
+    QString typeCompte = "depenses";
     CompteView* compteView = new CompteView;
     compteView->show();
     compteView->setWindowTitle("Treasurer - Dépenses");
-    compteView->setTypeCompteLabel("DÉPENSES");
+    compteView->setTypeCompteLabel(typeCompte.toUpper());
+    compteView->creerArborescence(typeCompte);
+    compteView->selectPremierCompte(typeCompte);
     this->close();
 }
 
 void ComptesView::on_detail_recettes_button_clicked()
 {
+    QString typeCompte = "recettes";
     CompteView* compteView = new CompteView;
     compteView->show();
     compteView->setWindowTitle("Treasurer - Recettes");
-    compteView->setTypeCompteLabel("RECETTES");
+    compteView->setTypeCompteLabel(typeCompte.toUpper());
+    compteView->creerArborescence(typeCompte);
+    compteView->selectPremierCompte(typeCompte);
     this->close();
 }
