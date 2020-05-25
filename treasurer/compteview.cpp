@@ -32,13 +32,6 @@ void CompteView::on_logout_button_clicked()
     this->close();
 }
 
-void CompteView::selectPremierCompte(QString typeCompte)
-{
-    Compte compte = Compte::getPremierCompte(typeCompte);
-    ui->compteLabel->setText(compte.getNom());
-    ui->DerniereModificationLabel->setText(compte.getDerniereModification().toString());
-}
-
 void CompteView::creerArborescence(QString typeCompte)
 {
     QStandardItemModel* model = new QStandardItemModel();

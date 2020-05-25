@@ -48,7 +48,6 @@ void ComptesView::on_detail_actifs_button_clicked()
     compteView->setWindowTitle("Treasurer - Actifs");
     compteView->setTypeCompteLabel(typeCompte.toUpper());
     compteView->creerArborescence(typeCompte);
-    compteView->selectPremierCompte(typeCompte);
     this->close();
 }
 
@@ -60,7 +59,6 @@ void ComptesView::on_detail_passifs_button_clicked()
     compteView->setWindowTitle("Treasurer - Passifs");
     compteView->setTypeCompteLabel(typeCompte.toUpper());
     compteView->creerArborescence(typeCompte);
-    compteView->selectPremierCompte(typeCompte);
     this->close();
 }
 
@@ -72,7 +70,6 @@ void ComptesView::on_detail_depenses_button_clicked()
     compteView->setWindowTitle("Treasurer - Dépenses");
     compteView->setTypeCompteLabel(typeCompte.toUpper());
     compteView->creerArborescence(typeCompte);
-    compteView->selectPremierCompte(typeCompte);
     this->close();
 }
 
@@ -84,6 +81,5 @@ void ComptesView::on_detail_recettes_button_clicked()
     compteView->setWindowTitle("Treasurer - Recettes");
     compteView->setTypeCompteLabel(typeCompte.toUpper());
     compteView->creerArborescence(typeCompte);
-    compteView->selectPremierCompte(typeCompte);
     this->close();
 }
