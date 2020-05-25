@@ -81,6 +81,9 @@
         </item>
         <item>
          <widget class="QLineEdit" name="soldeInitial">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -160,6 +163,12 @@
             <width>16777215</width>
             <height>31</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
           </property>
           <property name="styleSheet">
            <string notr="true">QComboBox {background-color: #f5f5f5};</string>
@@ -297,6 +306,12 @@
             <width>152</width>
             <height>31</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
           </property>
           <property name="styleSheet">
            <string notr="true">background: #f5f5f5;</string>

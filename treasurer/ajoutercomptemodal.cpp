@@ -51,7 +51,16 @@ void AjouterCompteModal::on_validate_button_clicked()
     QSqlQuery query;
     query.prepare("INSERT INTO compte (solde, type, nom, id_association, derniere_modification, id_compte_parent, virtuel) "
                   "VALUES (:solde, :type, :nom, :idAssociation, :derniereModification, :idCompteParent, :virtuel)");
-    query.bindValue(":solde", ui->soldeInitial->text().toDouble());
+
+    if (ui->virtuel->isChecked())
+    {
+         query.bindValue(":solde", ui->soldeInitial->text().toDouble());
+    }
+    else
+    {
+         query.bindValue(":solde", QVariant(QVariant::String));
+    }
+
     query.bindValue(":type", this->typeCompte);
     query.bindValue(":nom", ui->nom->text());
     query.bindValue(":idAssociation", CompteController::getInstance()->idAssociation);
@@ -72,5 +81,19 @@ void AjouterCompteModal::on_validate_button_clicked()
         CompteView* parent = qobject_cast<CompteView*>(this->parent());
         parent->creerArborescence();
         this->close();
+    }
+}
+
+void AjouterCompteModal::on_virtuel_stateChanged(int arg1)
+{
+    if (arg1 == 0)
+    {
+        ui->soldeInitial->setDisabled(false);
+        ui->comptesCapitauxPropres->setDisabled(false);
+    }
+    else
+    {
+        ui->soldeInitial->setDisabled(true);
+        ui->comptesCapitauxPropres->setDisabled(true);
     }
 }
