@@ -1,10 +1,11 @@
 #include "compteview.h"
 #include "ui_compteview.h"
 
-CompteView::CompteView(QWidget *parent) :
+CompteView::CompteView(QString typeCompte, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CompteView)
 {
+    this->typeCompte = typeCompte;
     ui->setupUi(this);
 }
 
@@ -13,9 +14,10 @@ CompteView::~CompteView()
     delete ui;
 }
 
-void CompteView::setTypeCompteLabel(QString typeCompte)
+void CompteView::setTypeCompteLabel()
 {
-    this->ui->typeCompteLabel->setText(typeCompte);
+    QString copie = this->typeCompte;
+    this->ui->typeCompteLabel->setText(copie.append("s").toUpper());
 }
 
 void CompteView::on_comptes_button_clicked()
@@ -32,12 +34,12 @@ void CompteView::on_logout_button_clicked()
     this->close();
 }
 
-void CompteView::creerArborescence(QString typeCompte)
+void CompteView::creerArborescence()
 {
     QStandardItemModel* model = new QStandardItemModel();
     QMap<int, QStandardItem*> items;
     QVector<QStandardItem*> itemsToPush;
-    QVector<Compte> comptes = Compte::getComptes(typeCompte);
+    QVector<Compte> comptes = Compte::getComptes(this->typeCompte);
 
     foreach(Compte compte, comptes)
     {
@@ -99,18 +101,19 @@ void CompteView::on_arborescence_clicked(const QModelIndex &index)
 
 void CompteView::on_ajouter_compte_button_clicked()
 {
-    AjouterCompteModal* ajouterCompteMododal = new AjouterCompteModal;
-    ajouterCompteMododal->show();
-    QString typeCompte = ui->typeCompteLabel->text().toLower();
-    typeCompte.chop(1);
     QString titre;
-    if (typeCompte == "actif")
+    if (this->typeCompte == "actif")
     {
-        titre = "Ajouter un compte d'" + typeCompte;
+        titre = "Ajouter un compte d'" + this->typeCompte;
     }
     else
     {
-        titre = "Ajouter un compte de " + typeCompte;
+        titre = "Ajouter un compte de " + this->typeCompte;
     }
+
+    AjouterCompteModal* ajouterCompteMododal = new AjouterCompteModal(this->typeCompte, this);
+    ajouterCompteMododal->show();
     ajouterCompteMododal->setTitreModal(titre);
+    ajouterCompteMododal->setComptesParents();
+    ajouterCompteMododal->setComptesCapitauxPropres();
 }

@@ -33,6 +33,7 @@ void ConnexionView::on_connection_button_clicked()
         this->close();
     }
     else {
+        qDebug() << query.lastError();
         ui->connection_error->setVisible(true);
     }
 }
