@@ -483,7 +483,7 @@ border: none;
                </font>
               </property>
               <property name="text">
-               <string>Compte #1</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -533,6 +533,18 @@ border: none;
                 </item>
                 <item>
                  <widget class="QLabel" name="DerniereModificationLabel">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
                   <property name="font">
                    <font>
                     <family>Raleway</family>
@@ -542,7 +554,7 @@ border: none;
                    </font>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;30/12/1999&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>

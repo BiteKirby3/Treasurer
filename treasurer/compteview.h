@@ -23,13 +23,11 @@ public:
     ~CompteView();
     void setTypeCompteLabel(QString typeCompte);
     void creerArborescence(QString typeCompte);
-    void selectPremierCompte(QString typeCompte);
 
 private slots:
     void on_comptes_button_clicked();
     void on_logout_button_clicked();
     void on_arborescence_clicked(const QModelIndex &index);
-
     void on_ajouter_compte_button_clicked();
 
 private:

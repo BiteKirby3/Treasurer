@@ -42,31 +42,6 @@ QVector<Compte> Compte::getComptes(QString typeCompte) {
     return comptes;
 }
 
-Compte Compte::getPremierCompte(QString typeCompte) {
-    QSqlQuery query;
-    query.prepare("SELECT * FROM compte WHERE id_association = :id AND type = :type ORDER BY id LIMIT 1");
-    query.bindValue(":id", CompteController::getInstance()->idAssociation);
-    query.bindValue(":type", typeCompte);
-
-    if(query.exec())
-    {
-        while(query.next()) {
-            int id = query.value(0).toInt();
-            double solde = query.value(1).toDouble();
-            double soldeDernierRapprochement = query.value(2).toDouble();
-            QDate dernierRapprochement = query.value(3).toDate();
-            QString type = query.value(4).toString();
-            QString nom = query.value(5).toString();
-            QDate derniereModification = query.value(7).toDate();
-            int idParent = query.value(8).toInt();
-            bool virtuel = query.value(9).toBool();
-
-            Compte compte(id, solde, soldeDernierRapprochement, dernierRapprochement, type, nom, derniereModification, virtuel, idParent);
-            return compte;
-        }
-    }
-}
-
 int Compte::getId() {
     return this->id;
 }
