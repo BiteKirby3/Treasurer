@@ -46,6 +46,36 @@ double Transaction::getDebit()
     return this->debit;
 }
 
+void Transaction::setDate(QDate date)
+{
+    this->date = date;
+}
+
+void Transaction::setReference(QString reference)
+{
+    this->reference = reference;
+}
+
+void Transaction::setTitre(QString titre)
+{
+    this->titre = titre;
+}
+
+void Transaction::setRapproche(bool rapproche)
+{
+    this->rapproche = rapproche;
+}
+
+void Transaction::setCredit(double credit)
+{
+    this->credit = credit;
+}
+
+void Transaction::setDebit(double debit)
+{
+    this->debit = debit;
+}
+
 QVector<Transaction> Transaction::getTransactionsDuCompte(int idCompte)
 {
     QVector<Transaction> transactions;
@@ -75,5 +105,35 @@ QVector<Transaction> Transaction::getTransactionsDuCompte(int idCompte)
     }
 
     return transactions;
+}
+
+void Transaction::editTransactions(QVector<Transaction> transactions, int idCompte)
+{
+    foreach (Transaction transaction, transactions)
+    {
+        QSqlQuery query1;
+        query1.prepare("UPDATE transac \
+                       SET reference = :reference, titre = :titre, date = :date \
+                       WHERE id = :id");
+
+        query1.bindValue(":id", transaction.getId());
+        query1.bindValue(":reference", transaction.getReference());
+        query1.bindValue(":titre", transaction.getTitre());
+        query1.bindValue(":date", transaction.getDate());
+        query1.exec();
+
+        QSqlQuery query2;
+        query2.prepare("UPDATE operation \
+                       SET debit = :debit, credit = :credit \
+                       WHERE id_compte = :idCompte \
+                       AND id_transaction = :idTransaction");
+
+        query2.bindValue(":idTransaction", transaction.getId());
+        query2.bindValue(":idCompte", idCompte);
+        query2.bindValue(":debit", transaction.getDebit());
+        query2.bindValue(":credit", transaction.getCredit());
+        query2.exec();
+
+    }
 }
 
