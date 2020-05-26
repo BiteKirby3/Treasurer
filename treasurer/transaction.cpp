@@ -137,3 +137,21 @@ void Transaction::editTransactions(QVector<Transaction> transactions, int idComp
     }
 }
 
+void Transaction::rapprocherCompte(int idCompte)
+{
+    QSqlQuery query1;
+    query1.prepare("UPDATE transac \
+                   SET rapproche = TRUE \
+                   WHERE id IN (SELECT id_transaction FROM operation WHERE id_compte = :idCompte);");
+    query1.bindValue(":idCompte", idCompte);
+    query1.exec();
+
+    QSqlQuery query2;
+    query2.prepare("UPDATE compte \
+                   SET date_dernier_rapprochement = :date, solde_dernier_rapprochement = solde \
+                   WHERE id = :idCompte;");
+    query2.bindValue(":idCompte", idCompte);
+    query2.bindValue(":date", QDate::currentDate());
+    query2.exec();
+}
+

@@ -29,6 +29,7 @@ SOURCES += \
         connexionview.cpp \
         databasemanager.cpp \
         main.cpp \
+        rapprochercomptemodal.cpp \
         transaction.cpp
 
 # Default rules for deployment.
@@ -40,7 +41,8 @@ FORMS += \
     ajoutercomptemodal.ui \
     comptesview.ui \
     compteview.ui \
-    connexionview.ui
+    connexionview.ui \
+    rapprochercomptemodal.ui
 
 HEADERS += \
     ajoutercomptemodal.h \
@@ -50,6 +52,7 @@ HEADERS += \
     compteview.h \
     connexionview.h \
     databasemanager.h \
+    rapprochercomptemodal.h \
     transaction.h
 
 RC_ICONS = ../ressources/logo.ico

@@ -29,7 +29,7 @@ public:
     void setDebit(double debit);
     static QVector<Transaction> getTransactionsDuCompte(int idCompte);
     static void editTransactions(QVector<Transaction> transactions, int idCompte);
-
+    static void rapprocherCompte(int idCompte);
 
 private:
     int id;
