@@ -83,6 +83,48 @@ void Compte::editDerniereModification(int idCompte)
     query.exec();
 }
 
+void Compte::ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO compte (solde, type, nom, id_association, derniere_modification, id_compte_parent, virtuel) "
+                  "VALUES (:solde, :type, :nom, :idAssociation, :derniereModification, :idCompteParent, :virtuel)");
+
+    if (virtuel)
+    {
+         query.bindValue(":solde", solde);
+    }
+    else
+    {
+         query.bindValue(":solde", QVariant(QVariant::String));
+    }
+
+    query.bindValue(":type", typeCompte);
+    query.bindValue(":nom", nom);
+    query.bindValue(":idAssociation", CompteController::getInstance()->idAssociation);
+    query.bindValue(":derniereModification", QDate::currentDate());
+
+    if (idCompteParent == 0)
+    {
+        query.bindValue(":idCompteParent", QVariant(QVariant::String));
+    }
+    else {
+        query.bindValue(":idCompteParent", idCompteParent);
+    }
+
+    query.bindValue(":virtuel", virtuel);
+    query.exec();
+}
+
+void Compte::setDateDernierRapprochement(QDate date)
+{
+    this->dernierRapprochement = date;
+}
+
+void Compte::setSoldeDernierRapprochement(double solde)
+{
+    this->soldeDernierRapprochement = solde;
+}
+
 int Compte::getId()
 {
     return this->id;

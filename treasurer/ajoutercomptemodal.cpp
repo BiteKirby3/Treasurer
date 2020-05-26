@@ -48,40 +48,10 @@ void AjouterCompteModal::setComptesCapitauxPropres()
 
 void AjouterCompteModal::on_validate_button_clicked()
 {
-    QSqlQuery query;
-    query.prepare("INSERT INTO compte (solde, type, nom, id_association, derniere_modification, id_compte_parent, virtuel) "
-                  "VALUES (:solde, :type, :nom, :idAssociation, :derniereModification, :idCompteParent, :virtuel)");
-
-    if (ui->virtuel->isChecked())
-    {
-         query.bindValue(":solde", ui->soldeInitial->text().toDouble());
-    }
-    else
-    {
-         query.bindValue(":solde", QVariant(QVariant::String));
-    }
-
-    query.bindValue(":type", this->typeCompte);
-    query.bindValue(":nom", ui->nom->text());
-    query.bindValue(":idAssociation", CompteController::getInstance()->idAssociation);
-    query.bindValue(":derniereModification", QDate::currentDate());
-
-    if (ui->comptesParents->currentData().toInt() == 0)
-    {
-        query.bindValue(":idCompteParent", QVariant(QVariant::String));
-    }
-    else {
-        query.bindValue(":idCompteParent", ui->comptesParents->currentData().toInt());
-    }
-
-    query.bindValue(":virtuel", ui->virtuel->isChecked());
-
-    if(query.exec())
-    {
-        CompteView* parent = qobject_cast<CompteView*>(this->parent());
-        parent->creerArborescence();
-        this->close();
-    }
+    CompteView* parent = qobject_cast<CompteView*>(this->parent());
+    Compte::ajouterCompte(ui->virtuel->isChecked(), parent->getTypeCompte(), ui->nom->text(),  ui->soldeInitial->text().toDouble(), ui->comptesParents->currentData().toInt());
+    parent->creerArborescence();
+    this->close();
 }
 
 void AjouterCompteModal::on_virtuel_stateChanged(int arg1)

@@ -4,6 +4,7 @@
 #include <QPushButton>
 
 #include "connexionview.h"
+#include "rapprochercomptemodal.h"
 #include "databasemanager.h"
 
 using namespace std;

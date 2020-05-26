@@ -14,6 +14,15 @@ CompteView::~CompteView()
     delete ui;
 }
 
+Compte CompteView::getCompteActuel() {
+    return this->compteActuel;
+}
+
+QString CompteView::getTypeCompte() {
+    return this->typeCompte;
+}
+
+
 void CompteView::setTypeCompteLabel()
 {
     QString copie = this->typeCompte;
@@ -161,6 +170,8 @@ void CompteView::on_arborescence_clicked(const QModelIndex &index)
     {
         ui->compteLabel->setText(this->compteActuel.getNom());
         ui->DerniereModificationLabel->setText(this->compteActuel.getDerniereModification().toString());
+        ui->rapprocher_button->setStyleSheet(" QPushButton{ background : #1556C7; color : #FFFFFF; font-weight: bold; border-radius: 5px; border: none; }");
+        ui->rapprocher_button->setDisabled(false);
         this->setTransactions();
     }
 }
@@ -226,6 +237,11 @@ QVector<Transaction> CompteView::getTransactionsModifiees()
     return transactions;
 }
 
+void CompteView::rapprocherCompteActuel() {
+    this->compteActuel.setDateDernierRapprochement(QDate::currentDate());
+    this->compteActuel.setSoldeDernierRapprochement(this->compteActuel.getSolde());
+}
+
 void CompteView::on_save_button_clicked()
 {
     Transaction::editTransactions(this->getTransactionsModifiees(), this->compteActuel.getId());
@@ -233,4 +249,11 @@ void CompteView::on_save_button_clicked()
     Compte::editDerniereModification(this->compteActuel.getId());
     this->compteActuel.setDerniereModification(QDate::currentDate());
     ui->DerniereModificationLabel->setText(this->compteActuel.getDerniereModification().toString());
+}
+
+void CompteView::on_rapprocher_button_clicked()
+{
+    RapprocherCompteModal* rapprocher = new RapprocherCompteModal(this);
+    rapprocher->setLabels();
+    rapprocher->show();
 }
