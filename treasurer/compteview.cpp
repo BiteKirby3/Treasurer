@@ -88,14 +88,77 @@ void CompteView::creerArborescence()
     ui->arborescence->expandAll();
 }
 
+void CompteView::setTransactions()
+{
+    QStandardItemModel* model = new QStandardItemModel();
+    model->setHorizontalHeaderItem(0, new QStandardItem("Référence"));
+    model->setHorizontalHeaderItem(1, new QStandardItem("Titre"));
+    model->setHorizontalHeaderItem(2, new QStandardItem("Date"));
+    model->setHorizontalHeaderItem(3, new QStandardItem("Débit"));
+    model->setHorizontalHeaderItem(4, new QStandardItem("Crédit"));
+    model->setHorizontalHeaderItem(5, new QStandardItem("Solde"));
+    model->setHorizontalHeaderItem(6, new QStandardItem("Rapproché"));
+
+    int count = 0;
+    int solde = 0;
+
+    QVector<Transaction> transactions = Transaction::getTransactionsDuCompte(this->compteActuel.getId());
+
+    foreach (Transaction transaction, transactions)
+    {
+        QList<QStandardItem*> items;
+
+        QStandardItem* i1 = new QStandardItem(transaction.getReference());
+        items.push_back(i1);
+
+        QStandardItem* i2 = new QStandardItem(transaction.getTitre());
+        items.push_back(i2);
+
+        QStandardItem* i3 = new QStandardItem(transaction.getDate().toString());
+        items.push_back(i3);
+
+        QStandardItem* i4 = new QStandardItem(QString::number(transaction.getDebit()));
+        items.push_back(i4);
+
+        QStandardItem* i5 = new QStandardItem(QString::number(transaction.getCredit()));
+        items.push_back(i5);
+
+        if (this->typeCompte == "actif" || this->typeCompte == "recette")
+        {
+            solde += transaction.getDebit();
+            solde -= transaction.getCredit();
+        }
+        else {
+            solde -= transaction.getDebit();
+            solde += transaction.getCredit();
+        }
+
+        QStandardItem* i6 = new QStandardItem(QString::number(solde));
+        items.push_back(i6);
+
+        QString boolText = transaction.isRapproche() ? "Oui" : "Non";
+        QStandardItem* i7 = new QStandardItem(boolText);
+        items.push_back(i7);
+
+        model->insertRow(count, items);
+        count++;
+    }
+
+
+
+    ui->transactions->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->transactions->setModel(model);
+}
+
 void CompteView::on_arborescence_clicked(const QModelIndex &index)
 {
-    Compte compte = index.data(Qt::UserRole +1).value<Compte>();
+    this->compteActuel = index.data(Qt::UserRole +1).value<Compte>();
 
-    if (!compte.isVirtuel())
+    if (!this->compteActuel.isVirtuel())
     {
-        ui->compteLabel->setText(compte.getNom());
-        ui->DerniereModificationLabel->setText(compte.getDerniereModification().toString());
+        ui->compteLabel->setText(this->compteActuel.getNom());
+        ui->DerniereModificationLabel->setText(this->compteActuel.getDerniereModification().toString());
+        this->setTransactions();
     }
 }
 

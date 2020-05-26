@@ -7,6 +7,7 @@
 
 #include "comptecontroller.h"
 #include "compte.h"
+#include "transaction.h"
 #include "connexionview.h"
 #include "ajoutercomptemodal.h"
 
@@ -23,6 +24,7 @@ public:
     ~CompteView();
     void setTypeCompteLabel();
     void creerArborescence();
+     void setTransactions();
 
 private slots:
     void on_comptes_button_clicked();
@@ -33,6 +35,7 @@ private slots:
 private:
     Ui::CompteView *ui;
     QString typeCompte;
+    Compte compteActuel;
 };
 
 #endif // COMPTEVIEW_H
