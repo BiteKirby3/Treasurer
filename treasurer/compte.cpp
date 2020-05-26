@@ -13,7 +13,8 @@ Compte::Compte(int id, double solde, double soldeDernierRapprochement, QDate der
     this->idParent = idParent;
 }
 
-QVector<Compte> Compte::getComptes(QString typeCompte) {
+QVector<Compte> Compte::getComptes(QString typeCompte)
+{
     QVector<Compte> comptes;
     QSqlQuery query;
     query.prepare("SELECT * FROM compte WHERE id_association = :id AND type = :type ORDER BY id_compte_parent NULLS FIRST, nom");
@@ -22,7 +23,8 @@ QVector<Compte> Compte::getComptes(QString typeCompte) {
 
     if(query.exec())
     {
-        while(query.next()) {
+        while(query.next())
+        {
             int id = query.value(0).toInt();
             double solde = query.value(1).toDouble();
             double soldeDernierRapprochement = query.value(2).toDouble();
@@ -41,7 +43,8 @@ QVector<Compte> Compte::getComptes(QString typeCompte) {
     return comptes;
 }
 
-QVector<Compte> Compte::getComptesVirtuels(QString typeCompte) {
+QVector<Compte> Compte::getComptesVirtuels(QString typeCompte)
+{
     QVector<Compte> comptes;
 
     QSqlQuery query;
@@ -51,7 +54,8 @@ QVector<Compte> Compte::getComptesVirtuels(QString typeCompte) {
 
     if(query.exec())
     {
-        while(query.next()) {
+        while(query.next())
+        {
             int id = query.value(0).toInt();
             double solde = query.value(1).toDouble();
             double soldeDernierRapprochement = query.value(2).toDouble();
@@ -70,38 +74,61 @@ QVector<Compte> Compte::getComptesVirtuels(QString typeCompte) {
     return comptes;
 }
 
-int Compte::getId() {
+void Compte::editDerniereModification(int idCompte)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE compte SET derniere_modification = :date WHERE id = :id");
+    query.bindValue(":id", idCompte);
+    query.bindValue(":date", QDate::currentDate());
+    query.exec();
+}
+
+int Compte::getId()
+{
     return this->id;
 }
 
-double Compte::getSolde() {
+double Compte::getSolde()
+{
     return this->solde;
 }
 
-double Compte::getSoldeDernierRapprochement() {
+double Compte::getSoldeDernierRapprochement()
+{
     return this->soldeDernierRapprochement;
 }
 
-QDate Compte::getDernierRapprochement() {
+QDate Compte::getDernierRapprochement()
+{
     return this->dernierRapprochement;
 }
 
-QString Compte::getType() {
+QString Compte::getType()
+{
     return this->type;
 }
 
-QString Compte::getNom() {
+QString Compte::getNom()
+{
     return this->nom;
 }
 
-QDate Compte::getDerniereModification() {
+QDate Compte::getDerniereModification()
+{
     return this->derniereModification;
 }
 
-bool Compte::isVirtuel() {
+bool Compte::isVirtuel()
+{
     return this->virtuel;
 }
 
-int Compte::getIdParent() {
+int Compte::getIdParent()
+{
     return this->idParent;
+}
+
+void Compte::setDerniereModification(QDate date)
+{
+    this->derniereModification = date;
 }

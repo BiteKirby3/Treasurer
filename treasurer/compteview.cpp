@@ -109,12 +109,13 @@ void CompteView::setTransactions()
         QList<QStandardItem*> items;
 
         QStandardItem* i1 = new QStandardItem(transaction.getReference());
+        i1->setData(QVariant::fromValue<Transaction>(transaction));
         items.push_back(i1);
 
         QStandardItem* i2 = new QStandardItem(transaction.getTitre());
         items.push_back(i2);
 
-        QStandardItem* i3 = new QStandardItem(transaction.getDate().toString());
+        QStandardItem* i3 = new QStandardItem(transaction.getDate().toString("dd/MM/yyyy"));
         items.push_back(i3);
 
         QStandardItem* i4 = new QStandardItem(QString::number(transaction.getDebit()));
@@ -134,10 +135,12 @@ void CompteView::setTransactions()
         }
 
         QStandardItem* i6 = new QStandardItem(QString::number(solde));
+        i6->setEditable(false);
         items.push_back(i6);
 
         QString boolText = transaction.isRapproche() ? "Oui" : "Non";
         QStandardItem* i7 = new QStandardItem(boolText);
+        i7->setEditable(false);
         items.push_back(i7);
 
         model->insertRow(count, items);
@@ -145,7 +148,7 @@ void CompteView::setTransactions()
     }
 
 
-
+    connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onItemChanged(QStandardItem*)));
     ui->transactions->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->transactions->setModel(model);
 }
@@ -179,4 +182,55 @@ void CompteView::on_ajouter_compte_button_clicked()
     ajouterCompteMododal->setTitreModal(titre);
     ajouterCompteMododal->setComptesParents();
     ajouterCompteMododal->setComptesCapitauxPropres();
+}
+
+void CompteView::onItemChanged(QStandardItem* item)
+{
+    Transaction transaction = qobject_cast<QStandardItemModel *>(ui->transactions->model())->item(item->row())->data().value<Transaction>();
+
+    switch (item->column()) {
+        case 0:
+            transaction.setReference(item->text());
+        break;
+
+        case 1:
+            transaction.setTitre(item->text());
+        break;
+
+        case 2:
+            transaction.setDate(QDate().fromString(item->text(), "dd/MM/yyyy"));
+        break;
+
+        case 3:
+            transaction.setDebit(item->text().toDouble());
+        break;
+
+        case 4:
+            transaction.setCredit(item->text().toDouble());
+        break;
+    }
+
+    qobject_cast<QStandardItemModel *>(ui->transactions->model())->item(item->row())->setData(QVariant::fromValue<Transaction>(transaction));
+    transactionsModifiees.insert(item->row());
+}
+
+QVector<Transaction> CompteView::getTransactionsModifiees()
+{
+    QVector<Transaction> transactions;
+
+    foreach (int ligne, this->transactionsModifiees)
+    {
+        transactions.push_back(qobject_cast<QStandardItemModel *>(ui->transactions->model())->item(ligne)->data().value<Transaction>());
+    }
+
+    return transactions;
+}
+
+void CompteView::on_save_button_clicked()
+{
+    Transaction::editTransactions(this->getTransactionsModifiees(), this->compteActuel.getId());
+    this->setTransactions();
+    Compte::editDerniereModification(this->compteActuel.getId());
+    this->compteActuel.setDerniereModification(QDate::currentDate());
+    ui->DerniereModificationLabel->setText(this->compteActuel.getDerniereModification().toString());
 }
