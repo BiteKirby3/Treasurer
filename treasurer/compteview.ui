@@ -582,7 +582,28 @@ border: none;
              <number>15</number>
             </property>
             <item>
-             <widget class="QTableView" name="transactions"/>
+             <widget class="QTableView" name="transactions">
+              <property name="font">
+               <font>
+                <family>Raleway</family>
+                <pointsize>11</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QHeaderView {font-size: 11pt; font-family: &quot;Raleway&quot;; font-weight: bold}</string>
+              </property>
+              <property name="autoScrollMargin">
+               <number>16</number>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
             </item>
            </layout>
           </item>

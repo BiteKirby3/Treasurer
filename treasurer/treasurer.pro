@@ -28,7 +28,8 @@ SOURCES += \
         compteview.cpp \
         connexionview.cpp \
         databasemanager.cpp \
-        main.cpp
+        main.cpp \
+        transaction.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -48,7 +49,8 @@ HEADERS += \
     comptesview.h \
     compteview.h \
     connexionview.h \
-    databasemanager.h
+    databasemanager.h \
+    transaction.h
 
 RC_ICONS = ../ressources/logo.ico
 
