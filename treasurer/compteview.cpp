@@ -138,7 +138,8 @@ void CompteView::setTransactions()
             solde += transaction.getDebit();
             solde -= transaction.getCredit();
         }
-        else {
+        else
+        {
             solde -= transaction.getDebit();
             solde += transaction.getCredit();
         }
@@ -162,18 +163,43 @@ void CompteView::setTransactions()
     ui->transactions->setModel(model);
 }
 
-void CompteView::on_arborescence_clicked(const QModelIndex &index)
+void CompteView::setCompteActuelLabel(QString nom)
 {
-    this->compteActuel = index.data(Qt::UserRole +1).value<Compte>();
+    ui->compteLabel->setText(nom);
+}
 
+void CompteView::afficherCompteInfo() {
     if (!this->compteActuel.isVirtuel())
     {
-        ui->compteLabel->setText(this->compteActuel.getNom());
+        this->setCompteActuelLabel(this->compteActuel.getNom());
         ui->DerniereModificationLabel->setText(this->compteActuel.getDerniereModification().toString());
         ui->rapprocher_button->setStyleSheet(" QPushButton{ background : #1556C7; color : #FFFFFF; font-weight: bold; border-radius: 5px; border: none; }");
         ui->rapprocher_button->setDisabled(false);
         this->setTransactions();
     }
+    else
+    {
+        ui->rapprocher_button->setStyleSheet(" QPushButton{ background : #535353; color : #FFFFFF; font-weight: bold; border-radius: 5px; border: none; }");
+        ui->rapprocher_button->setDisabled(true);
+    }
+}
+
+void CompteView::updateCompteInfo(QString nom, int idCompteParent, bool virtuel) {
+    this->compteActuel.setNom(nom);
+    this->compteActuel.setIdCompteParent(idCompteParent);
+    this->compteActuel.setVirtuel(virtuel);
+    this->compteActuel.setDerniereModification(QDate::currentDate());
+}
+
+
+void CompteView::on_arborescence_clicked(const QModelIndex &index)
+{
+    this->compteActuel = index.data(Qt::UserRole +1).value<Compte>();
+
+    ui->edit_button->setStyleSheet(" QPushButton{ background : #1556C7; color : #FFFFFF; font-weight: bold; border-radius: 5px; border: none; }");
+    ui->edit_button->setDisabled(false);
+
+    this->afficherCompteInfo();
 }
 
 void CompteView::on_ajouter_compte_button_clicked()
@@ -237,7 +263,8 @@ QVector<Transaction> CompteView::getTransactionsModifiees()
     return transactions;
 }
 
-void CompteView::rapprocherCompteActuel() {
+void CompteView::rapprocherCompteActuel()
+{
     this->compteActuel.setDateDernierRapprochement(QDate::currentDate());
     this->compteActuel.setSoldeDernierRapprochement(this->compteActuel.getSolde());
 }
@@ -256,4 +283,11 @@ void CompteView::on_rapprocher_button_clicked()
     RapprocherCompteModal* rapprocher = new RapprocherCompteModal(this);
     rapprocher->setLabels();
     rapprocher->show();
+}
+
+void CompteView::on_edit_button_clicked()
+{
+    EditerCompteModal* editer = new EditerCompteModal(this);
+    editer->show();
+    editer->setInfo();
 }
