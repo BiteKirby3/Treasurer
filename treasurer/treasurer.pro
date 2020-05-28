@@ -22,13 +22,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         ajoutercomptemodal.cpp \
+        ajoutertransactionmodal.cpp \
         compte.cpp \
         comptecontroller.cpp \
         comptesview.cpp \
         compteview.cpp \
         connexionview.cpp \
         databasemanager.cpp \
-        main.cpp
+        editercomptemodal.cpp \
+        main.cpp \
+        rapprochercomptemodal.cpp \
+        transaction.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -37,18 +41,26 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 FORMS += \
     ajoutercomptemodal.ui \
+    ajoutertransactionmodal.ui \
     comptesview.ui \
     compteview.ui \
-    connexionview.ui
+    connexionview.ui \
+    editercomptemodal.ui \
+    transaction.ui \
+    rapprochercomptemodal.ui
 
 HEADERS += \
     ajoutercomptemodal.h \
+    ajoutertransactionmodal.h \
     compte.h \
     comptecontroller.h \
     comptesview.h \
     compteview.h \
     connexionview.h \
-    databasemanager.h
+    databasemanager.h \
+    editercomptemodal.h \
+    rapprochercomptemodal.h \
+    transaction.h
 
 RC_ICONS = ../ressources/logo.ico
 

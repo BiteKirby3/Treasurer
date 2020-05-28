@@ -1,5 +1,5 @@
-#ifndef AJOUTERCOMPTEMODAL_H
-#define AJOUTERCOMPTEMODAL_H
+#ifndef AJOUTERTRANSACTIONMODAL_H
+#define AJOUTERTRANSACTIONMODAL_H
 
 
 #include <QMainWindow>
@@ -9,13 +9,13 @@ namespace Ui {
 class AjouterCompteModal;
 }
 
-class AjouterCompteModal : public QMainWindow
+class AjouterTransactionModal : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit AjouterCompteModal(QString typeCompte, QWidget *parent = nullptr);
-    ~AjouterCompteModal();
+    explicit AjouterTransactionModal(QString typeCompte, QWidget *parent = nullptr);
+    ~AjouterTransactionModal();
     void setTitreModal(QString titre);
     void setComptesParents();
     void setComptesCapitauxPropres();
@@ -23,12 +23,11 @@ public:
 private slots:
     void on_cancel_button_clicked();
     void on_validate_button_clicked();
-    void on_virtuel_stateChanged(int arg1);
 
 private:
-    Ui::AjouterCompteModal *ui;
+    Ui::AjouterTransactionModal *ui;
     QString typeCompte;
 };
 
 
-#endif // AJOUTERCOMPTEMODAL_H
+#endif // AJOUTERTRANSACTIONMODAL_H

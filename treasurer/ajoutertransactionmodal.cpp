@@ -1,7 +1,7 @@
-#include "ajoutercomptemodal.h"
-#include "ui_ajoutercomptemodal.h"
+#include "ajoutertransactionmodal.h"
+#include "ui_ajoutertransactionmodal.h"
 
-AjouterCompteModal::AjouterCompteModal(QString typeCompte, QWidget *parent) :
+AjouterTransactionModal::AjouterTransactionModal(QString typeCompte, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AjouterCompteModal)
 {
@@ -9,12 +9,12 @@ AjouterCompteModal::AjouterCompteModal(QString typeCompte, QWidget *parent) :
     ui->setupUi(this);
 }
 
-AjouterCompteModal::~AjouterCompteModal()
+AjouterTransactionModal::~AjouterTransactionModal()
 {
     delete ui;
 }
 
-void AjouterCompteModal::on_cancel_button_clicked()
+void AjouterTransactionModal::on_cancel_button_clicked()
 {
     this->close();
 }
@@ -67,3 +67,4 @@ void AjouterCompteModal::on_virtuel_stateChanged(int arg1)
         ui->comptesCapitauxPropres->setDisabled(true);
     }
 }
+

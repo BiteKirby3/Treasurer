@@ -1,6 +1,5 @@
 #ifndef COMPTECONTROLLER_H
 #define COMPTECONTROLLER_H
-
 #include <iostream>
 #include <QSqlQuery>
 #include <QSqlRecord>

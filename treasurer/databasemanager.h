@@ -19,4 +19,5 @@ private:
     static DatabaseManager* dm;
 };
 
+
 #endif // DATABASEMANAGER_H

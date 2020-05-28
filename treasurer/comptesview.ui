@@ -678,219 +678,6 @@ border: none;
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <widget class="QWidget" name="depenses" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>350</width>
-            <height>250</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>350</width>
-            <height>250</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QWidget#depenses {
-border-style : solid; 
-border-width: 1px;
-border-color: rgb(56, 56, 56);
-border-radius: 10px;
-}
-
-QWidget{
-background: #ffffff;
-}</string>
-          </property>
-          <widget class="QWidget" name="widget_11" native="true">
-           <property name="geometry">
-            <rect>
-             <x>100</x>
-             <y>90</y>
-             <width>150</width>
-             <height>2</height>
-            </rect>
-           </property>
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>150</width>
-             <height>2</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>150</width>
-             <height>2</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">.QWidget {
-background: #000000;
-border: none;
-border-radius: 0px;
-}</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_20">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>40</y>
-             <width>331</width>
-             <height>39</height>
-            </rect>
-           </property>
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <family>Raleway</family>
-             <pointsize>27</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: #1556C7;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;DÉPENSES&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-          <widget class="QWidget" name="horizontalLayoutWidget_8">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>190</y>
-             <width>311</width>
-             <height>33</height>
-            </rect>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_10">
-            <item>
-             <widget class="QPushButton" name="detail_depenses_button">
-              <property name="minimumSize">
-               <size>
-                <width>80</width>
-                <height>31</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>80</width>
-                <height>31</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Raleway</family>
-                <pointsize>11</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton{
-background : #1556C7;
-color : #FFFFFF;
-font-weight: bold;
-border-radius: 5px;
-border: none;
-}</string>
-              </property>
-              <property name="text">
-               <string>DÉTAIL</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="horizontalLayoutWidget_12">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>100</y>
-             <width>331</width>
-             <height>80</height>
-            </rect>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_17">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_18">
-              <item>
-               <spacer name="horizontalSpacer_8">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_21">
-                <property name="font">
-                 <font>
-                  <family>Raleway</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Solde :</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="depensesLabel">
-                <property name="font">
-                 <font>
-                  <family>Raleway</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>0€</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_9">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-        <item>
          <widget class="QWidget" name="recettes" native="true">
           <property name="minimumSize">
            <size>
@@ -1086,6 +873,219 @@ border: none;
               </item>
               <item>
                <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="depenses" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>350</width>
+            <height>250</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>350</width>
+            <height>250</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget#depenses {
+border-style : solid; 
+border-width: 1px;
+border-color: rgb(56, 56, 56);
+border-radius: 10px;
+}
+
+QWidget{
+background: #ffffff;
+}</string>
+          </property>
+          <widget class="QWidget" name="widget_11" native="true">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>90</y>
+             <width>150</width>
+             <height>2</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>2</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>2</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">.QWidget {
+background: #000000;
+border: none;
+border-radius: 0px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_20">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>331</width>
+             <height>39</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Raleway</family>
+             <pointsize>27</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #1556C7;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;DÉPENSES&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="horizontalLayoutWidget_8">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>190</y>
+             <width>311</width>
+             <height>33</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QPushButton" name="detail_depenses_button">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>31</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>80</width>
+                <height>31</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Raleway</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+background : #1556C7;
+color : #FFFFFF;
+font-weight: bold;
+border-radius: 5px;
+border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>DÉTAIL</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="horizontalLayoutWidget_12">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>100</y>
+             <width>331</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_17">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <item>
+               <spacer name="horizontalSpacer_8">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_21">
+                <property name="font">
+                 <font>
+                  <family>Raleway</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Solde :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="depensesLabel">
+                <property name="font">
+                 <font>
+                  <family>Raleway</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>0€</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_9">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
