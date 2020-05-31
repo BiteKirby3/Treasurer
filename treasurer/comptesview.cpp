@@ -6,6 +6,10 @@ ComptesView::ComptesView(QWidget *parent) :
     ui(new Ui::ComptesView)
 {
     ui->setupUi(this);
+    this->ui->comptes_button->setStyleSheet("color:rgb(0,0,255)");
+    this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->rapports_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
 }
 
 ComptesView::~ComptesView()
@@ -31,6 +35,13 @@ void ComptesView::setSoldeRecettesLabel(double solde)
 void ComptesView::setSoldeDepensesLabel(double solde)
 {
     this->ui->depensesLabel->setText(QString("%1€").arg(solde));
+}
+
+void ComptesView::on_rapports_button_clicked()
+{
+    RapportsView* rapports=new RapportsView;
+    rapports->show();
+    this->close();
 }
 
 void ComptesView::on_logout_button_clicked()

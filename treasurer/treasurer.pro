@@ -29,6 +29,9 @@ SOURCES += \
         connexionview.cpp \
         databasemanager.cpp \
         main.cpp \
+        rapport.cpp \
+        rapportsview.cpp \
+        rapportview.cpp \
         rapprochercomptemodal.cpp \
         transaction.cpp
 
@@ -42,6 +45,8 @@ FORMS += \
     comptesview.ui \
     compteview.ui \
     connexionview.ui \
+    rapportsview.ui \
+    rapportview.ui \
     rapprochercomptemodal.ui
 
 HEADERS += \
@@ -52,6 +57,9 @@ HEADERS += \
     compteview.h \
     connexionview.h \
     databasemanager.h \
+    rapport.h \
+    rapportsview.h \
+    rapportview.h \
     rapprochercomptemodal.h \
     transaction.h
 

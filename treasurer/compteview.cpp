@@ -36,6 +36,14 @@ void CompteView::on_comptes_button_clicked()
     this->close();
 }
 
+void CompteView::on_rapports_button_clicked()
+{
+    RapportsView* rapports=new RapportsView;
+    rapports->show();
+    this->close();
+}
+
+
 void CompteView::on_logout_button_clicked()
 {
     ConnexionView* connexion = new ConnexionView;
