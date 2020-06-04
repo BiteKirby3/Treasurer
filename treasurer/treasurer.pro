@@ -22,6 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         ajoutercomptemodal.cpp \
+        cloturemodal.cpp \
         compte.cpp \
         comptecontroller.cpp \
         comptesview.cpp \
@@ -42,6 +43,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 FORMS += \
     ajoutercomptemodal.ui \
+    cloturemodal.ui \
     comptesview.ui \
     compteview.ui \
     connexionview.ui \
@@ -51,6 +53,7 @@ FORMS += \
 
 HEADERS += \
     ajoutercomptemodal.h \
+    cloturemodal.h \
     compte.h \
     comptecontroller.h \
     comptesview.h \

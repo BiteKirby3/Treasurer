@@ -8,6 +8,7 @@
 #include <QSqlRecord>
 #include <QSqlError>
 
+#include "cloturemodal.h"
 #include "rapport.h"
 #include "rapportview.h"
 #include "connexionview.h"
@@ -24,8 +25,9 @@ public:
     ~RapportsView();
     void setBilanLabel(double solde);
     void setCompteDeResultatLabel(double solde);
-
+    void actualiser();
 private slots:
+    void on_cloture_button_clicked();
     void on_logout_button_clicked();
     void on_rapports_button_clicked();
     void on_comptes_button_clicked();

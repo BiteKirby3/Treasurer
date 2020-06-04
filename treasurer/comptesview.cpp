@@ -44,8 +44,15 @@ void ComptesView::on_rapports_button_clicked()
     this->close();
 }
 
+void ComptesView::on_cloture_button_clicked()
+{
+    ClotureModal* clo=new ClotureModal;
+    clo->show();
+}
+
 void ComptesView::on_logout_button_clicked()
 {
+    CompteController::getInstance()->setViewLogout("comptesview");
     ConnexionView* connexion = new ConnexionView;
     connexion->show();
     this->close();

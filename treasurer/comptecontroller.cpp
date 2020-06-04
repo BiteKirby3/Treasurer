@@ -50,4 +50,11 @@ void CompteController::setSoldes() {
     this->comptesview->setSoldeRecettesLabel(getSoldeComptes("recette"));
 }
 
+void CompteController::setViewLogout(QString view){
+    QSqlQuery query;
+    query.prepare(QString("UPDATE association SET view_logout=:vl WHERE id=%1").arg(this->idAssociation));
+    query.bindValue(":vl",view);
+    query.exec();
+}
+
 CompteController* CompteController::controller = nullptr;

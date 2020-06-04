@@ -46,6 +46,7 @@ void CompteView::on_rapports_button_clicked()
 
 void CompteView::on_logout_button_clicked()
 {
+    CompteController::getInstance()->setViewLogout("compteview");
     ConnexionView* connexion = new ConnexionView;
     connexion->show();
     this->close();
@@ -265,3 +266,10 @@ void CompteView::on_rapprocher_button_clicked()
     rapprocher->setLabels();
     rapprocher->show();
 }
+
+void CompteView::on_cloture_button_clicked()
+{
+    ClotureModal* clo=new ClotureModal;
+    clo->show();
+}
+

@@ -11,17 +11,7 @@ RapportsView::RapportsView(QWidget *parent) :
     this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
     this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
     this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
-    this->setBilanLabel(CompteController::getInstance()->getSoldeComptes("actif"));
-    double depense=CompteController::getInstance()->getSoldeComptes("depense");
-    double recette=CompteController::getInstance()->getSoldeComptes("recette");
-    if(recette-depense>0) {
-        this->ui->beneficeOuPerteLable->setText("Bénéfice:");
-        this->setCompteDeResultatLabel(recette-depense);
-    }
-    else{
-        this->ui->beneficeOuPerteLable->setText("Perte:");
-        this->setCompteDeResultatLabel(depense-recette);
-    }
+    this->actualiser();
 }
 RapportsView::~RapportsView()
 {
@@ -51,8 +41,24 @@ void RapportsView::setCompteDeResultatLabel(double solde)
     this->ui->compteDeResultatLabel->setText(QString("%1€").arg(solde));
 }
 
+void RapportsView::actualiser()
+{
+    this->setBilanLabel(CompteController::getInstance()->getSoldeComptes("actif"));
+    double depense=CompteController::getInstance()->getSoldeComptes("depense");
+    double recette=CompteController::getInstance()->getSoldeComptes("recette");
+    if(recette-depense>0) {
+        this->ui->beneficeOuPerteLable->setText("Bénéfice:");
+        this->setCompteDeResultatLabel(recette-depense);
+    }
+    else{
+        this->ui->beneficeOuPerteLable->setText("Perte:");
+        this->setCompteDeResultatLabel(depense-recette);
+    }
+}
+
 void RapportsView::on_logout_button_clicked()
 {
+    CompteController::getInstance()->setViewLogout("rapportsview");
     ConnexionView* connexion = new ConnexionView;
     connexion->show();
     this->close();
@@ -70,4 +76,10 @@ void RapportsView::on_detail_compteresultat_button_clicked()
     RapportView* rapView = new RapportView("compte de resultat");
     rapView->show();
     rapView->setWindowTitle("Compte de résultat");
+}
+
+void RapportsView::on_cloture_button_clicked()
+{
+    ClotureModal* clo=new ClotureModal;
+    clo->show();
 }

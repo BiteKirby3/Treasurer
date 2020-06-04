@@ -5,8 +5,10 @@
 #include <QDebug>
 #include <iostream>
 
+#include "comptecontroller.h"
 #include "connexionview.h"
 #include "compteview.h"
+#include "cloturemodal.h"
 
 
 namespace Ui {
@@ -27,6 +29,7 @@ public:
 
 private slots:
     void on_logout_button_clicked();
+    void on_cloture_button_clicked();
     void on_rapports_button_clicked();
     void on_detail_actifs_button_clicked();
     void on_detail_passifs_button_clicked();

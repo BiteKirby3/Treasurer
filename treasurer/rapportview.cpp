@@ -34,6 +34,7 @@ void RapportView::on_rapports_button_clicked()
 
 void RapportView::on_logout_button_clicked()
 {
+CompteController::getInstance()->setViewLogout("rapportview");
     ConnexionView* connexion = new ConnexionView;
     connexion->show();
     this->close();
