@@ -11,6 +11,7 @@ Transaction::Transaction(int id, QDate date, QString reference, QString titre, b
     this->debit = debit;
 }
 
+//gets
 int Transaction::getId()
 {
     return this->id;
@@ -46,6 +47,7 @@ double Transaction::getDebit()
     return this->debit;
 }
 
+//sets
 void Transaction::setDate(QDate date)
 {
     this->date = date;

@@ -3,68 +3,53 @@
 
 AjouterTransactionModal::AjouterTransactionModal(QString typeCompte, QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::AjouterCompteModal)
+    ui(new Ui::AjouterTransactionModal)
 {
-    this->typeCompte = typeCompte;
     ui->setupUi(this);
 }
 
-AjouterTransactionModal::~AjouterTransactionModal()
+AjouterCompteModal::~AjouterCompteModal()
 {
     delete ui;
 }
 
+
+void AjouterTransactionModal::on_date_userDateChanged(const QDate &date)
+{
+
+}
+
+void AjouterTransactionModal::on_reference_cursorPositionChanged(int arg1, int arg2)
+{
+
+}
+
+void AjouterTransactionModal::on_intitule_cursorPositionChanged(int arg1, int arg2)
+{
+
+}
+
+void AjouterTransactionModal::on_compte_cursorPositionChanged(int arg1, int arg2)
+{
+
+}
+
+void AjouterTransactionModal::on_credit_cursorPositionChanged(int arg1, int arg2)
+{
+
+}
+
+void AjouterTransactionModal::on_lineEdit_3_cursorPositionChanged(int arg1, int arg2)
+{
+
+}
+
 void AjouterTransactionModal::on_cancel_button_clicked()
 {
-    this->close();
+
 }
 
-void AjouterCompteModal::setTitreModal(QString titre)
+void AjouterTransactionModal::on_validate_button_clicked()
 {
-    ui->titreModal->setText(titre);
+
 }
-
-void AjouterCompteModal::setComptesParents()
-{
-    ui->compteParent->addItem("");
-
-    QVector<Compte> comptes = Compte::getComptesVirtuels(this->typeCompte);
-
-    foreach (Compte compte, comptes)
-    {
-        ui->compteParent->addItem(compte.getNom(), compte.getId());
-    }
-}
-
-void AjouterCompteModal::setComptesCapitauxPropres()
-{
-    QVector<Compte> comptes = Compte::getComptes("passif");
-
-    foreach (Compte compte, comptes)
-    {
-        ui->comptesCapitauxPropres->addItem(compte.getNom(), compte.getId());
-    }
-}
-
-void AjouterCompteModal::on_validate_button_clicked()
-{
-    CompteView* parent = qobject_cast<CompteView*>(this->parent());
-    Compte::ajouterCompte(ui->virtuel->isChecked(), parent->getTypeCompte(), ui->nom->text(),  ui->soldeInitial->text().toDouble(), ui->compteParent->currentData().toInt());
-    parent->creerArborescence();
-    this->close();
-}
-
-void AjouterCompteModal::on_virtuel_stateChanged(int arg1)
-{
-    if (arg1 == 0)
-    {
-        ui->soldeInitial->setDisabled(false);
-        ui->comptesCapitauxPropres->setDisabled(false);
-    }
-    else
-    {
-        ui->soldeInitial->setDisabled(true);
-        ui->comptesCapitauxPropres->setDisabled(true);
-    }
-}
-

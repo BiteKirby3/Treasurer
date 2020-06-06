@@ -17,7 +17,7 @@ public:
     int getId();
     QDate getDate();
     //Description
-    inline const QString & getReference();
+    QString getReference();
     QString getTitre();
     bool isRapproche();
     double getCredit();
