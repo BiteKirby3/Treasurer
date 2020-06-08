@@ -24,6 +24,8 @@ void ConnexionView::on_connection_button_clicked()
     {
         int id = query.value(0).toInt();
         QString vl=query.value(1).toString();
+        CompteController* compteController = CompteController::getInstance();
+        compteController->setIdAssociation(id);
         if(vl=="compteview"){
             CompteView* cv = new CompteView("actif");
             cv->show();
@@ -41,8 +43,6 @@ void ConnexionView::on_connection_button_clicked()
             rv->show();*/
         }
         else{
-            CompteController* compteController = CompteController::getInstance();
-            compteController->setIdAssociation(id);
             compteController->showComptes();
             compteController->setSoldes();
         }

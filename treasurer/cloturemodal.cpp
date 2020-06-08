@@ -1,5 +1,7 @@
 #include "cloturemodal.h"
 #include "ui_cloturemodal.h"
+#include"iostream"
+using namespace std;
 
 ClotureModal::ClotureModal(QWidget *parent) :
     QMainWindow(parent),
@@ -27,12 +29,99 @@ void ClotureModal::setLabels() {
 }
 void ClotureModal::on_validate_button_clicked()
 {
+    QVector<Compte> comptespassif=Compte::getComptes("passif");
+    bool trouve=false;
+    int cpt=0;
+    int idResultat;
+    while(!trouve && cpt<comptespassif.count()){
+        if (comptespassif[cpt].getNom()=="resultat"){
+            trouve=true;
+            idResultat=comptespassif[cpt].getId();
+        }
+        cpt++;
+    }
+    if(!trouve){
+        QSqlQuery query;
+        query.prepare("INSERT INTO compte (solde, type, nom, id_association, derniere_modification, virtuel) "
+                      "VALUES (:solde, :type, :nom, :idAssociation, :derniereModification,:virtuel)");
+        query.bindValue(":solde",0);
+        query.bindValue(":type", "passif");
+        query.bindValue(":nom", "resultat");
+        query.bindValue(":idAssociation", CompteController::getInstance()->idAssociation);
+        query.bindValue(":derniereModification", QDate::currentDate());
+        query.bindValue(":virtuel",false);
+        query.exec();
+        idResultat=query.lastInsertId().toInt();
+
+    }
     //1.transaction répartie permettant de solder les comptes de dépenses
-
+    double soldedepense=CompteController::getInstance()->getSoldeComptes("depense");
+    Transaction::ajouterTransaction(idResultat,"cloDepense","CLOTURE-DEPENSE",0,soldedepense);
+    QVector<Compte> comptsdep=Compte::getComptes("depense");
+    foreach(Compte compte, comptsdep){
+        if (!compte.isVirtuel() && compte.getSolde()!=0){
+            Transaction::ajouterTransaction(compte.getId(),"cloDepense","CLOTURE-DEPENSE",compte.getSolde(),0);
+        }
+    }
     //2.transaction répartie permettant de solder les comptes de recettes
-
-    //3.Transaction qui constate la nature du résultat (ici un excédent)
-
+    double solderecette=CompteController::getInstance()->getSoldeComptes("recette");
+    Transaction::ajouterTransaction(idResultat,"cloRecette","CLOTURE-RECETTE",solderecette,0);
+    QVector<Compte> comptsrec=Compte::getComptes("recette");
+    foreach(Compte compte, comptsrec){
+        if (!compte.isVirtuel() && compte.getSolde()!=0){
+            Transaction::ajouterTransaction(compte.getId(),"cloRecette","CLOTURE-RECETTE",0,compte.getSolde());
+        }
+    }
+    //3.Transaction qui constate la nature du résultat
+    int idCompteATransferer;
+    trouve=false;
+    cpt=0;
+    if(solderecette-soldedepense>=0){
+        while(!trouve && cpt<comptespassif.count()){
+            if (comptespassif[cpt].getNom()=="excedent"){
+                trouve=true;
+                idCompteATransferer=comptespassif[cpt].getId();
+            }
+            cpt++;
+        }
+        if(!trouve){
+            QSqlQuery query1;
+            query1.prepare("INSERT INTO compte (solde, type, nom, id_association, derniere_modification, virtuel) "
+                          "VALUES (:solde, :type, :nom, :idAssociation, :derniereModification, :virtuel)");
+            query1.bindValue(":solde",0);
+            query1.bindValue(":type", "passif");
+            query1.bindValue(":nom", "excedent");
+            query1.bindValue(":idAssociation", CompteController::getInstance()->idAssociation);
+            query1.bindValue(":derniereModification", QDate::currentDate());
+            query1.bindValue(":virtuel",false);
+            query1.exec();
+            idCompteATransferer=query1.lastInsertId().toInt();
+        }
+    }
+    else{
+        while(!trouve && cpt<comptespassif.count()){
+            if (comptespassif[cpt].getNom()=="deficit"){
+                trouve=true;
+                idCompteATransferer=comptespassif[cpt].getId();
+            }
+            cpt++;
+        }
+        if(!trouve){
+            QSqlQuery query2;
+            query2.prepare("INSERT INTO compte (solde, type, nom, id_association, derniere_modification, virtuel) "
+                          "VALUES (:solde, :type, :nom, :idAssociation, :derniereModification, :virtuel)");
+            query2.bindValue(":solde",0);
+            query2.bindValue(":type", "passif");
+            query2.bindValue(":nom", "excedent");
+            query2.bindValue(":idAssociation", CompteController::getInstance()->idAssociation);
+            query2.bindValue(":derniereModification", QDate::currentDate());
+            query2.bindValue(":virtuel",false);
+            query2.exec();
+            idCompteATransferer=query2.lastInsertId().toInt();
+        }
+    }
+    Transaction::ajouterTransaction(idResultat,"cloAffectation","Cloture-affectation benefice",0,solderecette-soldedepense);
+    Transaction::ajouterTransaction(idCompteATransferer,"cloAffectation","Cloture-affectation benefice",solderecette-soldedepense,0);
 
     //actualiser le window parent
     //cas1:ComptesView

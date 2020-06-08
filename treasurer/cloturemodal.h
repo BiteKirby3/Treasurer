@@ -10,6 +10,8 @@
 #include "rapportsview.h"
 #include "comptesview.h"
 #include "compteview.h"
+#include "compte.h"
+#include "transaction.h"
 
 namespace Ui {
 class ClotureModal;
