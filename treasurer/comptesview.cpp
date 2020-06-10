@@ -46,6 +46,10 @@ void ComptesView::on_rapports_button_clicked()
 
 void ComptesView::on_cloture_button_clicked()
 {
+    this->ui->rapports_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->cloture_button->setStyleSheet("color:rgb(0,0,255)");
+    this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
     ClotureModal* clo=new ClotureModal;
     clo->show();
 }
@@ -95,5 +99,13 @@ void ComptesView::on_detail_recettes_button_clicked()
     compteView->setWindowTitle("Treasurer - Recettes");
     compteView->creerArborescence();
     compteView->setTypeCompteLabel();
+    this->close();
+}
+
+
+void ComptesView::on_transaction_button_clicked()
+{
+    TransactionView* transaction=new TransactionView;
+    transaction->show();
     this->close();
 }

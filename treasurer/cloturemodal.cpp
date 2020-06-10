@@ -21,10 +21,17 @@ void ClotureModal::setLabels() {
     double depense=CompteController::getInstance()->getSoldeComptes("depense");
     double recette=CompteController::getInstance()->getSoldeComptes("recette");
     double resultat=recette-depense;
-    if(resultat>0)
+    if(resultat>0){
+        this->ui->validate_button->setVisible(true);
         resLabel+=" excédent de "+QString::number(resultat)+"€";
-    else
+    }
+    else{
+        this->ui->validate_button->setVisible(true);
         resLabel+=" déficit de "+QString::number(-resultat)+"€";
+    }
+    if(resultat==0){
+        this->ui->validate_button->setVisible(false);
+    }
     ui->resultatLabel->setText(resLabel);
 }
 void ClotureModal::on_validate_button_clicked()
@@ -56,20 +63,20 @@ void ClotureModal::on_validate_button_clicked()
     }
     //1.transaction répartie permettant de solder les comptes de dépenses
     double soldedepense=CompteController::getInstance()->getSoldeComptes("depense");
-    Transaction::ajouterTransaction(idResultat,"cloDepense","CLOTURE-DEPENSE",0,soldedepense);
+    int idTransaction=Transaction::ajouterTransaction(idResultat,"cloDepense","CLOTURE-DEPENSE",0,soldedepense);
     QVector<Compte> comptsdep=Compte::getComptes("depense");
     foreach(Compte compte, comptsdep){
         if (!compte.isVirtuel() && compte.getSolde()!=0){
-            Transaction::ajouterTransaction(compte.getId(),"cloDepense","CLOTURE-DEPENSE",compte.getSolde(),0);
+            Transaction::ajouterTransaction(compte.getId(),idTransaction,compte.getSolde(),0);
         }
     }
     //2.transaction répartie permettant de solder les comptes de recettes
     double solderecette=CompteController::getInstance()->getSoldeComptes("recette");
-    Transaction::ajouterTransaction(idResultat,"cloRecette","CLOTURE-RECETTE",solderecette,0);
+    idTransaction=Transaction::ajouterTransaction(idResultat,"cloRecette","CLOTURE-RECETTE",solderecette,0);
     QVector<Compte> comptsrec=Compte::getComptes("recette");
     foreach(Compte compte, comptsrec){
         if (!compte.isVirtuel() && compte.getSolde()!=0){
-            Transaction::ajouterTransaction(compte.getId(),"cloRecette","CLOTURE-RECETTE",0,compte.getSolde());
+            Transaction::ajouterTransaction(compte.getId(),idTransaction,0,compte.getSolde());
         }
     }
     //3.Transaction qui constate la nature du résultat
@@ -120,8 +127,8 @@ void ClotureModal::on_validate_button_clicked()
             idCompteATransferer=query2.lastInsertId().toInt();
         }
     }
-    Transaction::ajouterTransaction(idResultat,"cloAffectation","Cloture-affectation benefice",0,solderecette-soldedepense);
-    Transaction::ajouterTransaction(idCompteATransferer,"cloAffectation","Cloture-affectation benefice",solderecette-soldedepense,0);
+    idTransaction=Transaction::ajouterTransaction(idResultat,"CONS","Constatation 2019",0,solderecette-soldedepense);
+    Transaction::ajouterTransaction(idCompteATransferer,idTransaction,solderecette-soldedepense,0);
 
     //actualiser le window parent
     //cas1:ComptesView
@@ -139,11 +146,10 @@ void ClotureModal::on_validate_button_clicked()
         cv->setTransactions();
     }
     //cas3:TransactionView
-    /*
     TransactionView*  tv= dynamic_cast<TransactionView*>(this->parent());
     if (cv != nullptr) {
     }
-    */
+
     //cas4:RapportsView
     RapportsView* rsv = dynamic_cast<RapportsView*>(this->parent());
     if (rsv != nullptr) {

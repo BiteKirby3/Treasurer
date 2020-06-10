@@ -39,7 +39,8 @@ private slots:
     void on_cloture_button_clicked();
     void on_arborescence_clicked(const QModelIndex &index);
     void on_ajouter_compte_button_clicked();
-    void onItemChanged(QStandardItem* item);void on_logout_button_clicked();
+    void onItemChanged(QStandardItem* item);
+    void on_logout_button_clicked();
     void on_save_button_clicked();
     void on_rapprocher_button_clicked();
 

@@ -78,6 +78,17 @@ void Transaction::setDebit(double debit)
     this->debit = debit;
 }
 
+QVector<Transaction> Transaction::getTransactionParDate(){
+    QVector<Transaction> transactions;
+    QVector<int> idComptes;
+    QSqlQuery query;
+    query.prepare("SELECT t.id, t.date, t.reference, t.titre, t.rapproche, o.credit, o.debit,o.id_compte \
+                   FROM transac t, operation o \
+                   WHERE o.id_transaction = t.id \
+                   ORDER BY t.date");
+    return transactions;
+}
+
 QVector<Transaction> Transaction::getTransactionsDuCompte(int idCompte)
 {
     QVector<Transaction> transactions;
@@ -157,7 +168,7 @@ void Transaction::rapprocherCompte(int idCompte)
     query2.exec();
 }
 
-void Transaction::ajouterTransaction(int idCompte, QString reference, QString titre, double credit, double debit)
+int Transaction::ajouterTransaction(int idCompte, QString reference, QString titre, double credit, double debit)
 {
     //Mettre à jour la table transac
     QSqlQuery query1;
@@ -215,5 +226,54 @@ void Transaction::ajouterTransaction(int idCompte, QString reference, QString ti
     query4.bindValue(":debit",debit);
     query4.bindValue(":credit",credit);
     query4.exec();
+    return idTransaction;
 }
 
+void Transaction::ajouterTransaction(int idCompte,int idTransaction, double credit, double debit){
+    //Mettre à jour la table Compte
+    QSqlQuery query1;
+    query1.prepare("SELECT solde,type\
+                   FROM compte\
+                   WHERE id = :idCompte");
+    query1.bindValue(":idCompte", idCompte);
+    double solde;
+    QString type;
+    if(query1.exec())
+    {
+        while(query1.next()) {
+            solde= query1.value(0).toDouble();
+            type=query1.value(1).toString();
+        }
+     }
+    double montant=credit-debit;
+    if(montant>=0){
+        if(type=="actif"||type=="depense")
+            solde=solde-montant;
+        else
+            solde=solde+montant;
+    }
+    else{
+        montant=-montant;
+        if(type=="actif"||type=="depense")
+            solde=solde+montant;
+        else
+            solde=solde-montant;
+    }
+    QSqlQuery query2;
+    query2.prepare("UPDATE compte \
+                   SET solde = :solde,derniere_modification = :date\
+                   WHERE id = :idCompte;");
+    query2.bindValue(":idCompte", idCompte);
+    query2.bindValue(":solde", solde);
+    query2.bindValue(":date",QDate::currentDate());
+    query2.exec();
+    //Mettre à jour la table opération
+    QSqlQuery query3;
+    query3.prepare("INSERT INTO operation(id_compte, id_transaction, debit, credit)"
+                  "VALUES (:idcompte,:idtransaction,:debit,:credit)");
+    query3.bindValue(":idcompte", idCompte);
+    query3.bindValue(":idtransaction", idTransaction);
+    query3.bindValue(":debit",debit);
+    query3.bindValue(":credit",credit);
+    query3.exec();
+}

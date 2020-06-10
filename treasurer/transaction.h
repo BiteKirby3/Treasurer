@@ -27,9 +27,11 @@ public:
     void setRapproche(bool rapproche);
     void setCredit(double credit);
     void setDebit(double debit);
+    static QVector<Transaction> getTransactionParDate();
     static QVector<Transaction> getTransactionsDuCompte(int idCompte);
     static void editTransactions(QVector<Transaction> transactions, int idCompte);
-    static void ajouterTransaction(int idCompte, QString reference, QString titre, double credit, double debit);
+    static int ajouterTransaction(int idCompte, QString reference, QString titre, double credit, double debit);
+    static void ajouterTransaction(int idCompte,int idTransaction, double credit, double debit);
     static void rapprocherCompte(int idCompte);
 
 private:

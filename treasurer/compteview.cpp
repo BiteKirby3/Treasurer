@@ -269,6 +269,10 @@ void CompteView::on_rapprocher_button_clicked()
 
 void CompteView::on_cloture_button_clicked()
 {
+    this->ui->rapports_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->cloture_button->setStyleSheet("color:rgb(0,0,255)");
+    this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
     ClotureModal* clo=new ClotureModal;
     clo->show();
 }

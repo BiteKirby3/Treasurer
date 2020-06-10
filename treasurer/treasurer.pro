@@ -34,7 +34,8 @@ SOURCES += \
         rapportsview.cpp \
         rapportview.cpp \
         rapprochercomptemodal.cpp \
-        transaction.cpp
+        transaction.cpp \
+        transactionview.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -49,7 +50,8 @@ FORMS += \
     connexionview.ui \
     rapportsview.ui \
     rapportview.ui \
-    rapprochercomptemodal.ui
+    rapprochercomptemodal.ui \
+    transactionview.ui
 
 HEADERS += \
     ajoutercomptemodal.h \
@@ -64,7 +66,8 @@ HEADERS += \
     rapportsview.h \
     rapportview.h \
     rapprochercomptemodal.h \
-    transaction.h
+    transaction.h \
+    transactionview.h
 
 RC_ICONS = ../ressources/logo.ico
 
