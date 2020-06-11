@@ -13,6 +13,7 @@
 #include "ajoutercomptemodal.h"
 #include "rapprochercomptemodal.h"
 #include "cloturemodal.h"
+#include "operation.h"
 
 namespace Ui {
 class TransactionView;
@@ -32,7 +33,6 @@ private slots:
     void on_rapports_button_clicked();
     void on_cloture_button_clicked();
     void on_ajouter_transaction_button_clicked();
-    //void onItemChanged(QStandardItem* item);
     void on_logout_button_clicked();
 
 private:

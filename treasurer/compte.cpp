@@ -174,3 +174,18 @@ void Compte::setDerniereModification(QDate date)
 {
     this->derniereModification = date;
 }
+
+QString Compte::getNom(int idCompte){
+    QSqlQuery query;
+    query.prepare("SELECT nom FROM compte WHERE id=:id");
+    query.bindValue(":id", idCompte);
+    QString nomCompte;
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            nomCompte= query.value(0).toString();
+        }
+    }
+    return nomCompte;
+}

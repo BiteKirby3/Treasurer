@@ -7,6 +7,7 @@
 #include "rapprochercomptemodal.h"
 #include "databasemanager.h"
 #include "rapport.h"
+#include "operation.h"
 
 using namespace std;
 
@@ -15,9 +16,8 @@ int main(int countArg, char **listArg)
     QApplication app(countArg, listArg);
 
     DatabaseManager* dm = DatabaseManager::getInstance();
-
     if(dm->login())
-    {
+    {     
         ConnexionView* connexion = new ConnexionView;
         connexion->show();
     }

@@ -8,11 +8,14 @@
 #include <QSqlError>
 #include <QVariant>
 
+#include <comptecontroller.h>
+
 
 class Transaction
 {
 public:
     Transaction() {};
+    Transaction (int id,QDate date,QString reference,QString titre,bool rapproche);
     Transaction(int id, QDate date, QString reference, QString titre, bool rapproche, double credit, double debit);
     int getId();
     QDate getDate();
@@ -33,6 +36,7 @@ public:
     static int ajouterTransaction(int idCompte, QString reference, QString titre, double credit, double debit);
     static void ajouterTransaction(int idCompte,int idTransaction, double credit, double debit);
     static void rapprocherCompte(int idCompte);
+
 
 private:
     int id;

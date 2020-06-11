@@ -30,6 +30,7 @@ SOURCES += \
         connexionview.cpp \
         databasemanager.cpp \
         main.cpp \
+        operation.cpp \
         rapport.cpp \
         rapportsview.cpp \
         rapportview.cpp \
@@ -44,6 +45,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 FORMS += \
     ajoutercomptemodal.ui \
+    ajoutertransactionmodal.ui \
     cloturemodal.ui \
     comptesview.ui \
     compteview.ui \
@@ -62,6 +64,7 @@ HEADERS += \
     compteview.h \
     connexionview.h \
     databasemanager.h \
+    operation.h \
     rapport.h \
     rapportsview.h \
     rapportview.h \

@@ -13,6 +13,7 @@ class Compte
 public:
     Compte() {};
     Compte(int id, double solde, double soldeDernierRapprochement, QDate dernierRapprochement, QString type, QString nom, QDate derniereModification, bool virtuel, int idParent);
+    static QString getNom(int idCompte);
     static QVector<Compte> getComptes(QString typeCompte);
     static QVector<Compte> getComptesVirtuels(QString typeCompte);
     static void editDerniereModification(int idCompte);

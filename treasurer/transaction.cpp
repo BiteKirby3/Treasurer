@@ -1,5 +1,12 @@
 #include "transaction.h"
 
+Transaction::Transaction (int id,QDate date,QString reference,QString titre,bool rapproche){
+    this->id = id;
+    this->date = date;
+    this->reference = reference;
+    this->titre = titre;
+    this->rapproche = rapproche;
+}
 
 
 Transaction::Transaction(int id, QDate date, QString reference, QString titre, bool rapproche, double credit, double debit)
@@ -82,10 +89,23 @@ QVector<Transaction> Transaction::getTransactionParDate(){
     QVector<Transaction> transactions;
     QVector<int> idComptes;
     QSqlQuery query;
-    query.prepare("SELECT t.id, t.date, t.reference, t.titre, t.rapproche, o.credit, o.debit,o.id_compte \
-                   FROM transac t, operation o \
-                   WHERE o.id_transaction = t.id \
-                   ORDER BY t.date");
+    query.prepare("SELECT DISTINCT t.id,t.date,t.reference,t.titre,t.rapproche \
+                   FROM transac t,operation o,compte c\
+                   WHERE t.id=o.id_transaction AND o.id_Compte=c.id AND id_association=:id\
+                   ORDER BY date");
+    query.bindValue(":id", CompteController::getInstance()->idAssociation);
+                  if(query.exec())
+                  {
+                      while(query.next()) {
+                          int id = query.value(0).toInt();
+                          QDate date = query.value(1).toDate();
+                          QString reference = query.value(2).toString();
+                          QString titre = query.value(3).toString();
+                          bool rapproche = query.value(4).toBool();
+                          Transaction transaction(id, date, reference, titre, rapproche);
+                          transactions.push_back(transaction);
+                      }
+                  }
     return transactions;
 }
 
