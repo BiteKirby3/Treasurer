@@ -32,11 +32,13 @@ public:
     Compte getCompteActuel();
     QString getTypeCompte();
     void rapprocherCompteActuel();
+    void setMenuButtonColor();
 
 private slots:
     void on_comptes_button_clicked();
     void on_rapports_button_clicked();
     void on_cloture_button_clicked();
+    void on_transaction_button_clicked();
     void on_arborescence_clicked(const QModelIndex &index);
     void on_ajouter_compte_button_clicked();
     void onItemChanged(QStandardItem* item);

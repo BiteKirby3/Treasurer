@@ -26,9 +26,11 @@ public:
     void setBilanLabel(double solde);
     void setCompteDeResultatLabel(double solde);
     void actualiser();
+    void setMenuButtonColor();
 private slots:
     void on_cloture_button_clicked();
     void on_logout_button_clicked();
+    void on_transaction_button_clicked();
     void on_rapports_button_clicked();
     void on_comptes_button_clicked();
     void on_detail_bilan_button_clicked();

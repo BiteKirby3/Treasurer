@@ -14,6 +14,8 @@
 #include "rapprochercomptemodal.h"
 #include "cloturemodal.h"
 #include "operation.h"
+#include "ajoutertransactionmodal.h"
+
 
 namespace Ui {
 class TransactionView;
@@ -27,6 +29,8 @@ public:
     explicit TransactionView(QWidget *parent = nullptr);
     ~TransactionView();
     void afficherTransactions();
+    void actualiser();
+    void setMenuButtonColor();
 
 private slots:
     void on_comptes_button_clicked();
@@ -34,6 +38,7 @@ private slots:
     void on_cloture_button_clicked();
     void on_ajouter_transaction_button_clicked();
     void on_logout_button_clicked();
+    void on_save_button_clicked();
 
 private:
     Ui::TransactionView *ui;

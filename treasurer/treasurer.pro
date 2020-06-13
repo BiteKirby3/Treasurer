@@ -22,6 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         ajoutercomptemodal.cpp \
+        ajoutertransactionmodal.cpp \
         cloturemodal.cpp \
         compte.cpp \
         comptecontroller.cpp \
@@ -57,6 +58,7 @@ FORMS += \
 
 HEADERS += \
     ajoutercomptemodal.h \
+    ajoutertransactionmodal.h \
     cloturemodal.h \
     compte.h \
     comptecontroller.h \

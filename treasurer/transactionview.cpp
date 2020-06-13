@@ -1,7 +1,7 @@
+#include <QBrush>
+
 #include "transactionview.h"
 #include "ui_transactionview.h"
-using namespace std;
-#include "iostream"
 
 
 TransactionView::TransactionView(QWidget *parent) :
@@ -9,16 +9,24 @@ TransactionView::TransactionView(QWidget *parent) :
     ui(new Ui::TransactionView)
 {
     ui->setupUi(this);
-    this->ui->rapports_button->setStyleSheet("color:rgb(255,255,255)");
-    this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
-    this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
-    this->ui->transaction_button->setStyleSheet("color:rgb(0,0,255)");
-    this->afficherTransactions();
+    this->actualiser();
 }
 
 TransactionView::~TransactionView()
 {
     delete ui;
+}
+
+void TransactionView::setMenuButtonColor(){
+    this->ui->rapports_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->transaction_button->setStyleSheet("color:rgb(0,0,255)");
+}
+
+void TransactionView::actualiser(){
+    this->setMenuButtonColor();
+    this->afficherTransactions();
 }
 
 void TransactionView::afficherTransactions(){
@@ -34,7 +42,6 @@ void TransactionView::afficherTransactions(){
     int count=0;
     foreach (Transaction transaction, transactions)
     {
-        cout<<transaction.getId()<<endl;
         QVector<Operation> operations=Operation::getOperationDeTran(transaction.getId());
         int cpt=1;
         QStandardItem* espace= new QStandardItem("");
@@ -145,6 +152,12 @@ void TransactionView::on_logout_button_clicked()
 
 void TransactionView::on_ajouter_transaction_button_clicked()
 {
+    AjouterTransactionModal* ajouterTransactionMododal = new AjouterTransactionModal(this);
+    ajouterTransactionMododal->show();
+}
+
+void TransactionView::on_save_button_clicked()
+{
 
 }
 
@@ -154,7 +167,7 @@ void TransactionView::on_cloture_button_clicked()
     this->ui->cloture_button->setStyleSheet("color:rgb(0,0,255)");
     this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
     this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
-    ClotureModal* clo=new ClotureModal;
+    ClotureModal* clo=new ClotureModal(this);
     clo->show();
 }
 

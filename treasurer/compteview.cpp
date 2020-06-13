@@ -7,11 +7,19 @@ CompteView::CompteView(QString typeCompte, QWidget *parent) :
 {
     this->typeCompte = typeCompte;
     ui->setupUi(this);
+    this->setMenuButtonColor();
 }
 
 CompteView::~CompteView()
 {
     delete ui;
+}
+
+void CompteView::setMenuButtonColor(){
+    this->ui->comptes_button->setStyleSheet("color:rgb(0,0,255)");
+    this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->rapports_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
 }
 
 Compte CompteView::getCompteActuel() {
@@ -273,7 +281,13 @@ void CompteView::on_cloture_button_clicked()
     this->ui->cloture_button->setStyleSheet("color:rgb(0,0,255)");
     this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
     this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
-    ClotureModal* clo=new ClotureModal;
+    ClotureModal* clo=new ClotureModal(this);
     clo->show();
 }
 
+void CompteView::on_transaction_button_clicked()
+{
+    TransactionView* transaction=new TransactionView;
+    transaction->show();
+    this->close();
+}

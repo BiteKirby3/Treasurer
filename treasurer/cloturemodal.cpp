@@ -147,7 +147,8 @@ void ClotureModal::on_validate_button_clicked()
     }
     //cas3:TransactionView
     TransactionView*  tv= dynamic_cast<TransactionView*>(this->parent());
-    if (cv != nullptr) {
+    if (tv != nullptr) {
+        tv->actualiser();
     }
 
     //cas4:RapportsView
@@ -156,16 +157,45 @@ void ClotureModal::on_validate_button_clicked()
         rsv->actualiser();
     }
     //cas5:RapportView
+    /*
     RapportView* rv = dynamic_cast<RapportView*>(this->parent());
-    /*if (rs != nullptr) {
+    if (rs != nullptr) {
         rsv->actualiser();
-    }*/
+    }
+    */
 
     this->close();
 }
 
 void ClotureModal::on_cancel_button_clicked()
 {
+    ComptesView* parent = dynamic_cast<ComptesView*>(this->parent());
+    if (parent != nullptr) {
+       parent->setMenuButtonColor();
+    }
+    //cas2:CompteView
+    CompteView* cv = dynamic_cast<CompteView*>(this->parent());
+    if (cv != nullptr) {
+        cv->setMenuButtonColor();
+    }
+    //cas3:TransactionView
+    TransactionView*  tv= dynamic_cast<TransactionView*>(this->parent());
+    if (tv != nullptr) {
+        tv->setMenuButtonColor();
+    }
+
+    //cas4:RapportsView
+    RapportsView* rsv = dynamic_cast<RapportsView*>(this->parent());
+    if (rsv != nullptr) {
+        rsv->setMenuButtonColor();
+    }
+    //cas5:RapportView
+    /*
+    RapportView* rv = dynamic_cast<RapportView*>(this->parent());
+    if (rs != nullptr) {
+        rsv->actualiser();
+    }
+    */
     this->close();
 }
 

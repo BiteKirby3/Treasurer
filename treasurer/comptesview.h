@@ -27,6 +27,7 @@ public:
     void setSoldePassifsLabel(double solde);
     void setSoldeRecettesLabel(double solde);
     void setSoldeDepensesLabel(double solde);
+    void setMenuButtonColor();
 
 private slots:
     void on_logout_button_clicked();

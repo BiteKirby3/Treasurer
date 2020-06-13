@@ -6,15 +6,19 @@ ComptesView::ComptesView(QWidget *parent) :
     ui(new Ui::ComptesView)
 {
     ui->setupUi(this);
-    this->ui->comptes_button->setStyleSheet("color:rgb(0,0,255)");
-    this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
-    this->ui->rapports_button->setStyleSheet("color:rgb(255,255,255)");
-    this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
+    this->setMenuButtonColor();
 }
 
 ComptesView::~ComptesView()
 {
     delete ui;
+}
+
+void ComptesView::setMenuButtonColor(){
+    this->ui->comptes_button->setStyleSheet("color:rgb(0,0,255)");
+    this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->rapports_button->setStyleSheet("color:rgb(255,255,255)");
+    this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
 }
 
 void ComptesView::setSoldeActifsLabel(double solde)
@@ -50,7 +54,7 @@ void ComptesView::on_cloture_button_clicked()
     this->ui->cloture_button->setStyleSheet("color:rgb(0,0,255)");
     this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
     this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
-    ClotureModal* clo=new ClotureModal;
+    ClotureModal* clo=new ClotureModal(this);
     clo->show();
 }
 

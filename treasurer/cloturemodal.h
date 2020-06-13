@@ -5,7 +5,7 @@
 #include <QDateTime>
 
 #include "comptecontroller.h"
-//#include "transactionview.h"
+#include "transactionview.h"
 #include "rapportview.h"
 #include "rapportsview.h"
 #include "comptesview.h"

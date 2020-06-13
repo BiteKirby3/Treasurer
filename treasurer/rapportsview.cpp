@@ -36,13 +36,17 @@ void RapportsView::setCompteDeResultatLabel(double solde)
     this->ui->compteDeResultatLabel->setText(QString("%1€").arg(solde));
 }
 
-void RapportsView::actualiser()
-{
-    this->resize( QSize( 1200, 800 ));
+void RapportsView::setMenuButtonColor(){
     this->ui->rapports_button->setStyleSheet("color:rgb(0,0,255)");
     this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
     this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
     this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
+}
+
+void RapportsView::actualiser()
+{
+    this->resize( QSize( 1200, 800 ));
+    this->setMenuButtonColor();
     this->setBilanLabel(CompteController::getInstance()->getSoldeComptes("actif"));
     double depense=CompteController::getInstance()->getSoldeComptes("depense");
     double recette=CompteController::getInstance()->getSoldeComptes("recette");
@@ -84,6 +88,13 @@ void RapportsView::on_cloture_button_clicked()
     this->ui->cloture_button->setStyleSheet("color:rgb(0,0,255)");
     this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
     this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
-    ClotureModal* clo=new ClotureModal;
+    ClotureModal* clo=new ClotureModal(this);
     clo->show();
+}
+
+void RapportsView::on_transaction_button_clicked()
+{
+    TransactionView* transaction=new TransactionView;
+    transaction->show();
+    this->close();
 }
