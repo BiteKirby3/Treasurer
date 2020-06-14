@@ -3,9 +3,11 @@
 
 #include <QMainWindow>
 #include "transactionview.h"
+#include <QComboBox>
 
 #include <QWidget>
 #include <QtGui>
+
 
 namespace Ui {
 class AjouterTransactionModal;
@@ -18,6 +20,10 @@ class AjouterTransactionModal:public QMainWindow
 public:
     explicit AjouterTransactionModal(QWidget *parent = nullptr);
     ~AjouterTransactionModal();
+    void setComptes();
+    bool equilibre();
+    bool comptesvalide();
+    void setCompte1(QString compte1);
 
 private slots:
     void on_ajouter_button_clicked();
@@ -26,9 +32,9 @@ private slots:
 
 private:
     int nbCompteajoute;
-    QVector<QWidget*> comptes;
-    QVector<QWidget*> credits;
-    QVector<QWidget*> debits;
+    QVector<QComboBox*> comptes;
+    QVector<QLineEdit*> credits;
+    QVector<QLineEdit*> debits;
     Ui::AjouterTransactionModal *ui;
 };
 

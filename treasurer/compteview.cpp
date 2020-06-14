@@ -291,3 +291,10 @@ void CompteView::on_transaction_button_clicked()
     transaction->show();
     this->close();
 }
+
+void CompteView::on_ajouter_transaction_button_clicked()
+{
+    AjouterTransactionModal* ajouterTransactionMododal = new AjouterTransactionModal(this);
+    ajouterTransactionMododal->setCompte1(this->getCompteActuel().getNom());
+    ajouterTransactionMododal->show();
+}

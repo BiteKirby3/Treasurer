@@ -31,17 +31,17 @@ void ConnexionView::on_connection_button_clicked()
             cv->show();
         }
         else if(vl=="transactionview"){
-            /*TransactionView* tv = new TransactionView;
-            tv->show();*/
+            TransactionView* tv = new TransactionView;
+            tv->show();
         }
         else if(vl=="rapportsview"){
-            /*RapportsView* rsv = new RapportsView;
-            rsv->show();*/
+            RapportsView* rsv = new RapportsView;
+            rsv->show();
         }
-        else if(vl=="rapportview"){
-            /*RapportView* rv = new RapportView;
-            rv->show();*/
-        }
+        /*else if(vl=="rapportview"){
+            RapportView* rv = new RapportView;
+            rv->show();
+        }*/
         else{
             compteController->showComptes();
             compteController->setSoldes();

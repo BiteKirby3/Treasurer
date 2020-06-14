@@ -684,7 +684,7 @@ border: none;
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_3">
+             <widget class="QPushButton" name="ajouter_transaction_button">
               <property name="minimumSize">
                <size>
                 <width>120</width>

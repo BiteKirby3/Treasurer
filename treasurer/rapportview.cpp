@@ -21,6 +21,7 @@ void RapportView::on_comptes_button_clicked()
 {
     CompteController* compteController = CompteController::getInstance();
     compteController->showComptes();
+    compteController->setSoldes();
     this->close();
 }
 

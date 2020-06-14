@@ -31,6 +31,7 @@ public:
     void afficherTransactions();
     void actualiser();
     void setMenuButtonColor();
+    bool equilibre();
 
 private slots:
     void on_comptes_button_clicked();
@@ -42,6 +43,8 @@ private slots:
 
 private:
     Ui::TransactionView *ui;
+    QVector<int> nbOperationDeTransaction;
+    QVector<int> idTransactions;
 };
 
 #endif // TRANSACTIONVIEW_H

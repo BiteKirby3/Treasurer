@@ -15,8 +15,9 @@ class Operation
 public:
     Operation(){};
     Operation(int id,int idCompte,int idTransaction,double credit,double debit);
-    static QVector<Operation> getOperations();
+    static QVector<Operation> getOperationsDuCompte(int idCompte);
     static QVector<Operation> getOperationDeTran(int idTransac);
+    static void updateOperation(int idTransaction, QString nomCompte,double credit,double debit);
     int getId();
     int getIdCompte();
     int getCredit();

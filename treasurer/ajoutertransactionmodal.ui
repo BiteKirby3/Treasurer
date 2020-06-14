@@ -179,13 +179,13 @@ border: none;
          <widget class="QComboBox" name="compte2">
           <property name="minimumSize">
            <size>
-            <width>175</width>
+            <width>125</width>
             <height>25</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>200</width>
+            <width>125</width>
             <height>25</height>
            </size>
           </property>
@@ -208,6 +208,9 @@ border: none;
             <width>200</width>
             <height>25</height>
            </size>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
           </property>
          </widget>
         </item>
@@ -353,7 +356,7 @@ border: none;
          <widget class="QComboBox" name="compte1">
           <property name="minimumSize">
            <size>
-            <width>150</width>
+            <width>115</width>
             <height>25</height>
            </size>
           </property>

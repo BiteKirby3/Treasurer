@@ -1,5 +1,6 @@
 #include "transaction.h"
 
+
 Transaction::Transaction (int id,QDate date,QString reference,QString titre,bool rapproche){
     this->id = id;
     this->date = date;
@@ -92,7 +93,7 @@ QVector<Transaction> Transaction::getTransactionParDate(){
     query.prepare("SELECT DISTINCT t.id,t.date,t.reference,t.titre,t.rapproche \
                    FROM transac t,operation o,compte c\
                    WHERE t.id=o.id_transaction AND o.id_Compte=c.id AND id_association=:id\
-                   ORDER BY date");
+                   ORDER BY t.date ASC,t.id ASC");
     query.bindValue(":id", CompteController::getInstance()->idAssociation);
                   if(query.exec())
                   {
@@ -188,7 +189,7 @@ void Transaction::rapprocherCompte(int idCompte)
     query2.exec();
 }
 
-int Transaction::ajouterTransaction(int idCompte, QString reference, QString titre, double credit, double debit)
+int Transaction::ajouterOperation(int idCompte, QString reference, QString titre, double credit, double debit)
 {
     //Mettre à jour la table transac
     QSqlQuery query1;
@@ -249,7 +250,7 @@ int Transaction::ajouterTransaction(int idCompte, QString reference, QString tit
     return idTransaction;
 }
 
-void Transaction::ajouterTransaction(int idCompte,int idTransaction, double credit, double debit){
+void Transaction::ajouterOperation(int idCompte,int idTransaction, double credit, double debit){
     //Mettre à jour la table Compte
     QSqlQuery query1;
     query1.prepare("SELECT solde,type\
@@ -296,4 +297,17 @@ void Transaction::ajouterTransaction(int idCompte,int idTransaction, double cred
     query3.bindValue(":debit",debit);
     query3.bindValue(":credit",credit);
     query3.exec();
+}
+
+void Transaction::updateTransaction(int idTran,QDate d,QString ref,QString titre,bool rap)
+{
+    QSqlQuery query;
+
+    query.prepare("UPDATE transac SET date = :date,reference = :reference,titre = :titre,rapproche = :rapproche WHERE id = :id;");
+    query.bindValue(":date",d);
+    query.bindValue(":reference",ref);
+    query.bindValue(":titre",titre);
+    query.bindValue(":rapproche",rap);
+    query.bindValue(":id", idTran);
+    query.exec();
 }

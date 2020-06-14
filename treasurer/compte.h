@@ -7,6 +7,7 @@
 #include <QSqlError>
 
 #include "comptecontroller.h"
+#include "operation.h"
 
 class Compte
 {
@@ -16,10 +17,14 @@ public:
     static QString getNom(int idCompte);
     static QVector<Compte> getComptes(QString typeCompte);
     static QVector<Compte> getComptesVirtuels(QString typeCompte);
+    static QVector<Compte> getComptesNonVirtuels();
     static void editDerniereModification(int idCompte);
     static void ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent);
+    double calculerSolde();
+    void updateSolde(double solde);
     int getId();
     double getSolde();
+    void setSolde(double solde);
     double getSoldeDernierRapprochement();
     QDate getDernierRapprochement();
     QString getType();

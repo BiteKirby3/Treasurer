@@ -45,6 +45,7 @@ private slots:
     void on_logout_button_clicked();
     void on_save_button_clicked();
     void on_rapprocher_button_clicked();
+    void on_ajouter_transaction_button_clicked();
 
 private:
     Ui::CompteView *ui;
