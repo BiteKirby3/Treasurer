@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
+    <width>772</width>
     <height>402</height>
    </rect>
   </property>
@@ -69,7 +69,7 @@
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: #1556C7;</string>
+              <string notr="true">color: #ffffff;</string>
              </property>
              <property name="text">
               <string>COMPTES</string>
@@ -111,7 +111,7 @@
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: #ffffff;</string>
+              <string notr="true">color: #1556C7;</string>
              </property>
              <property name="text">
               <string>RAPPORTS</string>

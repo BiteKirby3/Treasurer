@@ -70,17 +70,19 @@ void RapportsView::on_logout_button_clicked()
 }
 
 void RapportsView::on_detail_bilan_button_clicked()
-{   
+{
     RapportView* rapView = new RapportView("Bilan");
     rapView->show();
     rapView->setWindowTitle("Bilan");
+    this->close();
 }
 
 void RapportsView::on_detail_compteresultat_button_clicked()
 {
-    RapportView* rapView = new RapportView("compte de resultat");
+    RapportView* rapView = new RapportView("Compte de résultat");
     rapView->show();
     rapView->setWindowTitle("Compte de résultat");
+    this->close();
 }
 
 void RapportsView::on_cloture_button_clicked()
