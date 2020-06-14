@@ -3,10 +3,10 @@
 bool DatabaseManager::login()
 {
     this->db = QSqlDatabase::addDatabase("QPSQL");
-    this->db.setPort(5433);
+    this->db.setPort(5432);
     this->db.setHostName("localhost");
     this->db.setUserName("postgres");
-    this->db.setPassword("root");
+    this->db.setPassword("Mathilde");
     this->db.setDatabaseName("postgres");
 
     return this->db.open();

@@ -7,10 +7,6 @@ RapportsView::RapportsView(QWidget *parent) :
 {
     ui->setupUi(this);
     this->resize( QSize( 1200, 800 ));
-    this->ui->rapports_button->setStyleSheet("color:rgb(0,0,255)");
-    this->ui->cloture_button->setStyleSheet("color:rgb(255,255,255)");
-    this->ui->comptes_button->setStyleSheet("color:rgb(255,255,255)");
-    this->ui->transaction_button->setStyleSheet("color:rgb(255,255,255)");
     this->setBilanLabel(CompteController::getInstance()->getSoldeComptes("actif"));
     double depense=CompteController::getInstance()->getSoldeComptes("depense");
     double recette=CompteController::getInstance()->getSoldeComptes("recette");
@@ -59,15 +55,17 @@ void RapportsView::on_logout_button_clicked()
 }
 
 void RapportsView::on_detail_bilan_button_clicked()
-{   
+{
     RapportView* rapView = new RapportView("Bilan");
     rapView->show();
     rapView->setWindowTitle("Bilan");
+    this->close();
 }
 
 void RapportsView::on_detail_compteresultat_button_clicked()
 {
-    RapportView* rapView = new RapportView("compte de resultat");
+    RapportView* rapView = new RapportView("Compte de résultat");
     rapView->show();
     rapView->setWindowTitle("Compte de résultat");
+    this->close();
 }
