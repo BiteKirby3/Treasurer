@@ -111,8 +111,7 @@ void Compte::editDerniereModification(int idCompte)
     query.bindValue(":date", QDate::currentDate());
     query.exec();
 }
-
-void Compte::ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent)
+int Compte::ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO compte (solde, type, nom, id_association, derniere_modification, id_compte_parent, virtuel) "
@@ -142,6 +141,9 @@ void Compte::ajouterCompte(bool virtuel, QString typeCompte, QString nom, double
 
     query.bindValue(":virtuel", virtuel);
     query.exec();
+    int idCompteCree=query.lastInsertId().toInt();
+
+    return idCompteCree;
 }
 
 void Compte::setDateDernierRapprochement(QDate date)

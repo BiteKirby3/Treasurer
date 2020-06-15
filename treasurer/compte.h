@@ -19,7 +19,7 @@ public:
     static QVector<Compte> getComptesVirtuels(QString typeCompte);
     static QVector<Compte> getComptesNonVirtuels();
     static void editDerniereModification(int idCompte);
-    static void ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent);
+    static int ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent);
     double calculerSolde();
     void updateSolde(double solde);
     int getId();
