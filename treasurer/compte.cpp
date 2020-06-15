@@ -258,6 +258,9 @@ void Compte::setDerniereModification(QDate date)
 }
 
 <<<<<<< treasurer/compte.cpp
+=======
+<<<<<<< treasurer/compte.cpp
+>>>>>>> treasurer/compte.cpp
 QString Compte::getNom(int idCompte){
     QSqlQuery query;
     query.prepare("SELECT nom FROM compte WHERE id=:id");
@@ -318,5 +321,4 @@ void Compte::setIdCompteParent(int idCompteParent)
 void Compte::setVirtuel(bool virtuel)
 {
     this->virtuel = virtuel;
-
 }
