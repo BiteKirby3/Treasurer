@@ -57,7 +57,7 @@ FORMS += \
     rapprochercomptemodal.ui \
     transactionview.ui\
     editercomptemodal.ui \
-    rapprochercomptemodal.ui
+
 
 HEADERS += \
     ajoutercomptemodal.h \
@@ -76,7 +76,7 @@ HEADERS += \
     editercomptemodal.h \
     rapprochercomptemodal.h \
     transaction.h \
-    transactionview.h
+    transactionview.h \
 
 RC_ICONS = ../ressources/logo.ico
 

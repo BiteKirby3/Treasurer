@@ -257,6 +257,10 @@ void Compte::setDerniereModification(QDate date)
     this->derniereModification = date;
 }
 
+<<<<<<< treasurer/compte.cpp
+=======
+<<<<<<< treasurer/compte.cpp
+>>>>>>> treasurer/compte.cpp
 QString Compte::getNom(int idCompte){
     QSqlQuery query;
     query.prepare("SELECT nom FROM compte WHERE id=:id");
