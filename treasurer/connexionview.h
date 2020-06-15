@@ -11,6 +11,10 @@
 #include "ui_connexionview.h"
 #include "databasemanager.h"
 #include "comptecontroller.h"
+#include "compteview.h"
+//#include "rapportsview.h"
+//#include "rapportview.h"
+//#include "transactionview.h"
 
 
 
