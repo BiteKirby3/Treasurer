@@ -30,6 +30,7 @@ SOURCES += \
         compteview.cpp \
         connexionview.cpp \
         databasemanager.cpp \
+        editercomptemodal.cpp \
         main.cpp \
         operation.cpp \
         rapport.cpp \
@@ -37,7 +38,7 @@ SOURCES += \
         rapportview.cpp \
         rapprochercomptemodal.cpp \
         transaction.cpp \
-        transactionview.cpp
+        transactionview.cpp \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -54,7 +55,9 @@ FORMS += \
     rapportsview.ui \
     rapportview.ui \
     rapprochercomptemodal.ui \
-    transactionview.ui
+    transactionview.ui\
+    editercomptemodal.ui \
+    rapprochercomptemodal.ui
 
 HEADERS += \
     ajoutercomptemodal.h \
@@ -70,6 +73,7 @@ HEADERS += \
     rapport.h \
     rapportsview.h \
     rapportview.h \
+    editercomptemodal.h \
     rapprochercomptemodal.h \
     transaction.h \
     transactionview.h

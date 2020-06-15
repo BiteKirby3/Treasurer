@@ -29,7 +29,6 @@ class ConnexionView : public QMainWindow
 public:
     explicit ConnexionView(QWidget *parent = nullptr);
     ~ConnexionView();
-    void test();
 
 private slots:
     void on_connection_button_clicked();

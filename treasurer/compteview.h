@@ -13,6 +13,7 @@
 #include "ajoutercomptemodal.h"
 #include "rapprochercomptemodal.h"
 #include "cloturemodal.h"
+#include "editercomptemodal.h"
 
 namespace Ui {
 class CompteView;
@@ -26,8 +27,11 @@ public:
     explicit CompteView(QString typeCompte, QWidget *parent = nullptr);
     ~CompteView();
     void setTypeCompteLabel();
+    void setCompteActuelLabel(QString nom);
     void creerArborescence();
     void setTransactions();
+    void updateCompteInfo(QString nom, int idCompteParent, bool virtuel);
+    void afficherCompteInfo();
     QVector<Transaction> getTransactionsModifiees();
     Compte getCompteActuel();
     QString getTypeCompte();
@@ -46,6 +50,8 @@ private slots:
     void on_save_button_clicked();
     void on_rapprocher_button_clicked();
     void on_ajouter_transaction_button_clicked();
+
+    void on_edit_button_clicked();
 
 private:
     Ui::CompteView *ui;

@@ -72,6 +72,52 @@ QVector<Compte> Compte::getComptes(QString typeCompte)
     return comptes;
 }
 
+Compte Compte::getCompte(int idCompte)
+{
+    Compte compte;
+    QSqlQuery query;
+    query.prepare("SELECT * FROM compte WHERE id_association = :idAssociation AND id = :idCompte");
+    query.bindValue(":idAssociation", CompteController::getInstance()->idAssociation);
+    query.bindValue(":idCompte", idCompte);
+
+    if(query.exec() && query.next())
+    {
+        int id = query.value(0).toInt();
+        double solde = query.value(1).toDouble();
+        double soldeDernierRapprochement = query.value(2).toDouble();
+        QDate dernierRapprochement = query.value(3).toDate();
+        QString type = query.value(4).toString();
+        QString nom = query.value(5).toString();
+        QDate derniereModification = query.value(7).toDate();
+        int idParent = query.value(8).toInt();
+        qDebug() << idParent;
+        bool virtuel = query.value(9).toBool();
+
+        Compte compte(id, solde, soldeDernierRapprochement, dernierRapprochement, type, nom, derniereModification, virtuel, idParent);
+    }
+
+    return compte;
+}
+
+void Compte::deleteCompte(int idCompte)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM compte WHERE id = :idCompte");
+    query.bindValue(":idCompte", idCompte);
+    query.exec();
+}
+void Compte::editCompte(int id, QString nom, int idCompteParent, bool virtuel)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE compte SET nom = :nom, id_compte_parent = :idCompteParent, virtuel = :virtuel, derniere_modification = :date WHERE id = :id;");
+    query.bindValue(":id", id);
+    query.bindValue(":nom", nom);
+    query.bindValue(":virtuel", virtuel);
+    query.bindValue(":idCompteParent", idCompteParent);
+    query.bindValue(":date", QDate::currentDate());
+    query.exec();
+}
+
 QVector<Compte> Compte::getComptesVirtuels(QString typeCompte)
 {
     QVector<Compte> comptes;
@@ -256,4 +302,19 @@ double Compte::calculerSolde()
     }
     this->setSolde(s);
     return s;
+}
+
+void Compte::setNom(QString nom)
+{
+    this->nom = nom;
+}
+
+void Compte::setIdCompteParent(int idCompteParent)
+{
+    this->idParent = idCompteParent;
+}
+
+void Compte::setVirtuel(bool virtuel)
+{
+    this->virtuel = virtuel;
 }
