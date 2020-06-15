@@ -355,6 +355,45 @@ border: none;
                 </property>
                </widget>
               </item>
+              <item>
+               <widget class="QPushButton" name="edit_button">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>120</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Raleway</family>
+                  <pointsize>11</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background : #535353;
+color : #FFFFFF;
+font-weight: bold;
+border-radius: 5px;
+border: none;
+}</string>
+                </property>
+                <property name="text">
+                 <string>EDITER</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </widget>
            </widget>
@@ -619,7 +658,7 @@ border: none;
              <number>25</number>
             </property>
             <item>
-             <spacer name="horizontalSpacer_4">
+             <spacer name="horizontalSpacer_9">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>

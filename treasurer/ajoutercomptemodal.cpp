@@ -26,13 +26,13 @@ void AjouterCompteModal::setTitreModal(QString titre)
 
 void AjouterCompteModal::setComptesParents()
 {
-    ui->comptesParents->addItem("");
+    ui->compteParent->addItem("");
 
     QVector<Compte> comptes = Compte::getComptesVirtuels(this->typeCompte);
 
     foreach (Compte compte, comptes)
     {
-        ui->comptesParents->addItem(compte.getNom(), compte.getId());
+        ui->compteParent->addItem(compte.getNom(), compte.getId());
     }
 }
 

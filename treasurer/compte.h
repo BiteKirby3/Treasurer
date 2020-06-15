@@ -18,6 +18,9 @@ public:
     static QVector<Compte> getComptes(QString typeCompte);
     static QVector<Compte> getComptesVirtuels(QString typeCompte);
     static QVector<Compte> getComptesNonVirtuels();
+    static Compte getCompte(int idCompte);
+    static void deleteCompte(int idCompte);
+    static void editCompte(int id, QString nom, int idCompteParent, bool virtuel);
     static void editDerniereModification(int idCompte);
     static int ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent);
     double calculerSolde();
@@ -32,6 +35,9 @@ public:
     QDate getDerniereModification();
     bool isVirtuel();
     int getIdParent();
+    void setNom(QString nom);
+    void setIdCompteParent(int idCompteParent);
+    void setVirtuel(bool virtuel);
     void setDerniereModification(QDate date);
     void setDateDernierRapprochement(QDate date);
     void setSoldeDernierRapprochement(double solde);

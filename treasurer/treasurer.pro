@@ -30,6 +30,7 @@ SOURCES += \
         compteview.cpp \
         connexionview.cpp \
         databasemanager.cpp \
+        editercomptemodal.cpp \
         main.cpp \
         operation.cpp \
         rapport.cpp \
@@ -51,10 +52,15 @@ FORMS += \
     comptesview.ui \
     compteview.ui \
     connexionview.ui \
+<<<<<<< treasurer/treasurer.pro
     rapportsview.ui \
     rapportview.ui \
     rapprochercomptemodal.ui \
     transactionview.ui
+=======
+    editercomptemodal.ui \
+    rapprochercomptemodal.ui
+>>>>>>> treasurer/treasurer.pro
 
 HEADERS += \
     ajoutercomptemodal.h \
@@ -70,6 +76,7 @@ HEADERS += \
     rapport.h \
     rapportsview.h \
     rapportview.h \
+    editercomptemodal.h \
     rapprochercomptemodal.h \
     transaction.h \
     transactionview.h

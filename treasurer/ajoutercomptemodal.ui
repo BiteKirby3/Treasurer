@@ -294,7 +294,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comptesParents">
+         <widget class="QComboBox" name="compteParent">
           <property name="minimumSize">
            <size>
             <width>152</width>
