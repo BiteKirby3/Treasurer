@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlError>
+#include <stdexcept>
 
 #include "comptecontroller.h"
 #include "operation.h"

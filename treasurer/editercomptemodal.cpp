@@ -55,8 +55,14 @@ void EditerCompteModal::on_cancel_button_clicked()
 
 void EditerCompteModal::on_delete_button_clicked()
 {
-    CompteView* parent = qobject_cast<CompteView*>(this->parent());
-    Compte::deleteCompte(parent->getCompteActuel().getId());
+    try {
+        CompteView* parent = qobject_cast<CompteView*>(this->parent());
+        Compte::deleteCompte(parent->getCompteActuel().getId());
+    }
+    catch (std::exception e) {
+        QMessageBox::information(this, "Error", e.what());
+    }
+
     this->close();
 }
 

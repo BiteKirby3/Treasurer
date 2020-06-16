@@ -104,7 +104,10 @@ void Compte::deleteCompte(int idCompte)
     QSqlQuery query;
     query.prepare("DELETE FROM compte WHERE id = :idCompte");
     query.bindValue(":idCompte", idCompte);
-    query.exec();
+    if (!query.exec()) {
+        throw std::exception("Ce compte ne peut pas être supprimé");
+    }
+
 }
 void Compte::editCompte(int id, QString nom, int idCompteParent, bool virtuel)
 {
