@@ -42,7 +42,10 @@ void AjouterCompteModal::setComptesCapitauxPropres()
 
     foreach (Compte compte, comptes)
     {
-        ui->comptesCapitauxPropres->addItem(compte.getNom(), compte.getId());
+        if(!compte.isVirtuel())
+        {
+             ui->comptesCapitauxPropres->addItem(compte.getNom(), compte.getId());
+        }
     }
 }
 

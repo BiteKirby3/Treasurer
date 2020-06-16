@@ -112,11 +112,19 @@ void Compte::deleteCompte(int idCompte)
 void Compte::editCompte(int id, QString nom, int idCompteParent, bool virtuel)
 {
     QSqlQuery query;
-    query.prepare("UPDATE compte SET nom = :nom, id_compte_parent = :idCompteParent, virtuel = :virtuel, derniere_modification = :date WHERE id = :id;");
+    if (idCompteParent != 0)
+    {
+        query.prepare("UPDATE compte SET nom = :nom, id_compte_parent = :idCompteParent, virtuel = :virtuel, derniere_modification = :date WHERE id = :id;");
+        query.bindValue(":idCompteParent", idCompteParent);
+    }
+    else {
+         query.prepare("UPDATE compte SET nom = :nom, virtuel = :virtuel, id_compte_parent = NULL, derniere_modification = :date WHERE id = :id;");
+    }
+
     query.bindValue(":id", id);
     query.bindValue(":nom", nom);
     query.bindValue(":virtuel", virtuel);
-    query.bindValue(":idCompteParent", idCompteParent);
+
     query.bindValue(":date", QDate::currentDate());
     query.exec();
 }

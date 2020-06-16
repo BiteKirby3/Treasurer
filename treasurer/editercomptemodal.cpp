@@ -62,14 +62,14 @@ void EditerCompteModal::on_delete_button_clicked()
     catch (std::exception e) {
         QMessageBox::information(this, "Error", e.what());
     }
-
+    CompteView* parent = qobject_cast<CompteView*>(this->parent());
+    parent->creerArborescence();
     this->close();
 }
 
 void EditerCompteModal::on_validate_button_clicked()
 {
     CompteView* parent = qobject_cast<CompteView*>(this->parent());
-    qDebug() << ui->compteParent->currentData().toInt();
     Compte::editCompte(parent->getCompteActuel().getId(), ui->nom->text(), ui->compteParent->currentData().toInt(), ui->virtuel->isChecked());
     parent->updateCompteInfo(ui->nom->text(), ui->compteParent->currentData().toInt(), ui->virtuel->isChecked());
     parent->afficherCompteInfo();
