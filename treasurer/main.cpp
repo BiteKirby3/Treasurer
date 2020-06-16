@@ -6,8 +6,6 @@
 #include "connexionview.h"
 #include "rapprochercomptemodal.h"
 #include "databasemanager.h"
-#include "rapport.h"
-#include "operation.h"
 
 using namespace std;
 

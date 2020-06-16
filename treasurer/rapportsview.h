@@ -9,7 +9,6 @@
 #include <QSqlError>
 
 #include "cloturemodal.h"
-#include "rapport.h"
 #include "rapportview.h"
 #include "connexionview.h"
 

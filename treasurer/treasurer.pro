@@ -33,7 +33,6 @@ SOURCES += \
         editercomptemodal.cpp \
         main.cpp \
         operation.cpp \
-        rapport.cpp \
         rapportsview.cpp \
         rapportview.cpp \
         rapprochercomptemodal.cpp \
@@ -70,7 +69,6 @@ HEADERS += \
     connexionview.h \
     databasemanager.h \
     operation.h \
-    rapport.h \
     rapportsview.h \
     rapportview.h \
     editercomptemodal.h \

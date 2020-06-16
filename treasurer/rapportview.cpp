@@ -211,9 +211,3 @@ void RapportView::on_transaction_button_clicked()
     transaction->show();
     this->close();
 }
-
-void RapportView::on_cloture_button_clicked()
-{
-    ClotureModal* clo=new ClotureModal(this);
-    clo->show();
-}

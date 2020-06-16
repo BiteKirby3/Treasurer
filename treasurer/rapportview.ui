@@ -132,27 +132,6 @@ background:#ffffff;
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QPushButton" name="cloture_button">
-             <property name="font">
-              <font>
-               <family>Raleway</family>
-               <pointsize>14</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: #ffffff;</string>
-             </property>
-             <property name="text">
-              <string>CLÔTURE</string>
-             </property>
-             <property name="flat">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
           </layout>
          </item>
          <item>

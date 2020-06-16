@@ -10,7 +10,6 @@
 #include <QDateTime>
 #include <QStandardItemModel>
 
-#include "rapport.h"
 #include "rapportsview.h"
 #include "connexionview.h"
 #include "compte.h"
@@ -21,7 +20,7 @@ class RapportView;
 
 class RapportView: public QMainWindow
 {
-    //Q_OBJECT
+    Q_OBJECT
 public:
     explicit RapportView(QString typeRapport, QWidget *parent = nullptr);
     ~RapportView();
@@ -42,7 +41,6 @@ private slots:
     void on_rapports_button_clicked();
     void on_comptes_button_clicked();
     void on_transaction_button_clicked();
-    void on_cloture_button_clicked();
 
 private:
     Ui::RapportView *ui;
