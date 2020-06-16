@@ -6,7 +6,7 @@ bool DatabaseManager::login()
     this->db.setPort(5432);
     this->db.setHostName("localhost");
     this->db.setUserName("postgres");
-    this->db.setPassword("Mathilde");
+    this->db.setPassword("luluben08");
     this->db.setDatabaseName("postgres");
 
     return this->db.open();

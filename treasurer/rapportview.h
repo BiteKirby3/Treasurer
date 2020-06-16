@@ -41,6 +41,8 @@ private slots:
     void on_logout_button_clicked();
     void on_rapports_button_clicked();
     void on_comptes_button_clicked();
+    void on_transaction_button_clicked();
+    void on_cloture_button_clicked();
 
 private:
     Ui::RapportView *ui;

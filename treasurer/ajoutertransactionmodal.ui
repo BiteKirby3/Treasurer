@@ -43,6 +43,14 @@
           <height>35</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>Raleway</family>
+          <pointsize>15</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
 background : #1556C7;
@@ -53,9 +61,22 @@ border: none;
 }</string>
         </property>
         <property name="text">
-         <string>+</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../ressources/plus.svg</normaloff>../ressources/plus.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>35</height>
+         </size>
         </property>
         <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
          <bool>false</bool>
         </property>
        </widget>
@@ -109,7 +130,29 @@ border: none;
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="reference"/>
+         <widget class="QLineEdit" name="reference">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #f5f5f5;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -165,7 +208,29 @@ border: none;
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="intitule"/>
+         <widget class="QLineEdit" name="intitule">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #f5f5f5;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -175,19 +240,40 @@ border: none;
      <layout class="QHBoxLayout" name="triplet">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_12">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>11</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>14</number>
+        </property>
         <item>
          <widget class="QComboBox" name="compte2">
           <property name="minimumSize">
            <size>
-            <width>125</width>
-            <height>25</height>
+            <width>170</width>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>125</width>
-            <height>25</height>
+            <width>115</width>
+            <height>30</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #f5f5f5;</string>
           </property>
          </widget>
         </item>
@@ -195,32 +281,85 @@ border: none;
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_13">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>11</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>14</number>
+        </property>
         <item>
          <widget class="QLineEdit" name="credit2">
           <property name="minimumSize">
            <size>
-            <width>200</width>
-            <height>25</height>
+            <width>0</width>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>200</width>
-            <height>25</height>
+            <width>16777215</width>
+            <height>30</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
           </property>
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #f5f5f5;</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="debit2"/>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_14"/>
+       <layout class="QVBoxLayout" name="verticalLayout_14">
+        <property name="leftMargin">
+         <number>11</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>14</number>
+        </property>
+        <item>
+         <widget class="QLineEdit" name="debit2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #f5f5f5;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -341,10 +480,18 @@ border: none;
         </property>
         <item>
          <widget class="QLabel" name="label">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
           <property name="font">
            <font>
-            <family>Rockwell</family>
+            <family>Raleway</family>
             <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -356,15 +503,24 @@ border: none;
          <widget class="QComboBox" name="compte1">
           <property name="minimumSize">
            <size>
-            <width>115</width>
-            <height>25</height>
+            <width>170</width>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>100</width>
-            <height>25</height>
+            <width>115</width>
+            <height>30</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #f5f5f5;</string>
           </property>
          </widget>
         </item>
@@ -388,8 +544,10 @@ border: none;
          <widget class="QLabel" name="label_4">
           <property name="font">
            <font>
-            <family>Rockwell</family>
+            <family>Raleway</family>
             <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -398,7 +556,23 @@ border: none;
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="credit1"/>
+         <widget class="QLineEdit" name="credit1">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #f5f5f5;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -420,8 +594,10 @@ border: none;
          <widget class="QLabel" name="label_2">
           <property name="font">
            <font>
-            <family>Rockwell</family>
+            <family>Raleway</family>
             <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -430,7 +606,23 @@ border: none;
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="debit1"/>
+         <widget class="QLineEdit" name="debit1">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Raleway</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #f5f5f5;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

@@ -30,15 +30,25 @@ void AjouterTransactionModal::setCompte1(QString compte1){
 void AjouterTransactionModal::on_ajouter_button_clicked()
 {
     QComboBox* compte=new QComboBox();
+    compte->setMinimumSize(170, 30);
+    compte->setStyleSheet("background: #f5f5f5;");
     QLineEdit* credit=new QLineEdit();
+    credit->setMinimumSize(0, 30);
+    credit->setStyleSheet("background: #f5f5f5;");
     QLineEdit* debit=new QLineEdit();
+    debit->setMinimumSize(0, 30);
+    debit->setStyleSheet("background: #f5f5f5;");
     this->comptes.push_back(compte);
     this->credits.push_back(credit);
     this->debits.push_back(debit);
 
     QVBoxLayout* lcompte=new QVBoxLayout();
+    lcompte->setContentsMargins(11, 0, 18, 14);
     QVBoxLayout* lcredit=new QVBoxLayout();
+    lcredit->setContentsMargins(11, 0, 18, 14);
     QVBoxLayout* ldebit=new QVBoxLayout();
+    ldebit->setContentsMargins(11, 0, 18, 14);
+
     lcompte->addWidget(compte);
     lcredit->addWidget(credit);
     ldebit->addWidget(debit);

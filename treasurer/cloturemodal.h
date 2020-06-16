@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QDateTime>
+#include <QCloseEvent>
 
 #include "comptecontroller.h"
 #include "transactionview.h"
@@ -31,6 +32,7 @@ private slots:
 
 private:
     Ui::ClotureModal *ui;
+    void closeEvent (QCloseEvent *event);
 };
 
 #endif // CLOTUREMODAL_H

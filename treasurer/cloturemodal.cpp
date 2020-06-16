@@ -249,3 +249,27 @@ void ClotureModal::on_cancel_button_clicked()
     this->close();
 }
 
+void ClotureModal::closeEvent (QCloseEvent *event)
+{
+    ComptesView* parent = dynamic_cast<ComptesView*>(this->parent());
+    if (parent != nullptr) {
+       parent->setMenuButtonColor();
+    }
+    //cas2:CompteView
+    CompteView* cv = dynamic_cast<CompteView*>(this->parent());
+    if (cv != nullptr) {
+        cv->setMenuButtonColor();
+    }
+    //cas3:TransactionView
+    TransactionView*  tv= dynamic_cast<TransactionView*>(this->parent());
+    if (tv != nullptr) {
+        tv->setMenuButtonColor();
+    }
+
+    //cas4:RapportsView
+    RapportsView* rsv = dynamic_cast<RapportsView*>(this->parent());
+    if (rsv != nullptr) {
+        rsv->setMenuButtonColor();
+    }
+}
+

@@ -73,7 +73,7 @@ void RapportsView::on_detail_bilan_button_clicked()
 {
     RapportView* rapView = new RapportView("Bilan");
     rapView->show();
-    rapView->setWindowTitle("Bilan");
+    //rapView->setWindowTitle("Treasurer - Bilan");
     this->close();
 }
 
@@ -81,7 +81,7 @@ void RapportsView::on_detail_compteresultat_button_clicked()
 {
     RapportView* rapView = new RapportView("Compte de résultat");
     rapView->show();
-    rapView->setWindowTitle("Compte de résultat");
+    //rapView->setWindowTitle("Treasurer - Compte de résultat");
     this->close();
 }
 

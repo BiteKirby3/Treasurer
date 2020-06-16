@@ -197,7 +197,6 @@ void RapportView::on_rapports_button_clicked()
     this->close();
 }
 
-
 void RapportView::on_logout_button_clicked()
 {
 CompteController::getInstance()->setViewLogout("rapportview");
@@ -206,5 +205,15 @@ CompteController::getInstance()->setViewLogout("rapportview");
     this->close();
 }
 
+void RapportView::on_transaction_button_clicked()
+{
+    TransactionView* transaction=new TransactionView;
+    transaction->show();
+    this->close();
+}
 
-
+void RapportView::on_cloture_button_clicked()
+{
+    ClotureModal* clo=new ClotureModal(this);
+    clo->show();
+}
