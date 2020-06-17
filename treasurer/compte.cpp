@@ -105,7 +105,7 @@ void Compte::deleteCompte(int idCompte)
     query.prepare("DELETE FROM compte WHERE id = :idCompte");
     query.bindValue(":idCompte", idCompte);
     if (!query.exec()) {
-        throw std::exception("Ce compte ne peut pas être supprimé");
+        throw std::runtime_error("Ce compte ne peut pas être supprimé");
     }
 
 }
