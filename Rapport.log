@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.14)  17 JUN 2020 03:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.14)  18 JUN 2020 00:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Reporte.tex
-(./Reporte.tex
+**Rapport.tex
+(./Rapport.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-06-03>
 (c:/texlive/2020/texmf-dist/tex/latex/base/report.cls
@@ -409,7 +409,7 @@ File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count286
 \l__pdf_internal_box=\box52
 )
-(./Reporte.aux
+(./Rapport.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 
@@ -423,7 +423,7 @@ LaTeX Warning: Label `fig:silla3ruedas' multiply defined.
 LaTeX Warning: Label `fig:silla3ruedas' multiply defined.
 
 )
-\openout1 = `Reporte.aux'.
+\openout1 = `Rapport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
@@ -511,12 +511,12 @@ LaTeX Info: Redefining \ref on input line 70.
 LaTeX Info: Redefining \pageref on input line 70.
 LaTeX Info: Redefining \nameref on input line 70.
 
-(./Reporte.out) (./Reporte.out)
+(./Rapport.out) (./Rapport.out)
 \@outlinefile=\write3
-\openout3 = `Reporte.out'.
+\openout3 = `Rapport.out'.
 
 \c@lstlisting=\count294
-<utc_logo.jpg, id=60, 301.125pt x 100.87688pt>
+<utc_logo.jpg, id=64, 301.125pt x 100.87688pt>
 File: utc_logo.jpg Graphic file (type jpg)
 <use utc_logo.jpg>
 Package pdftex.def Info: utc_logo.jpg  used on input line 75.
@@ -539,72 +539,66 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 
 [1{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./utc_logo.jpg>] (./Reporte.toc
+ <./utc_logo.jpg>] (./Rapport.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
 \tf@toc=\write4
-\openout4 = `Reporte.toc'.
+\openout4 = `Rapport.toc'.
 
  [2
 
 ] [3]
-<GANTT.PNG, id=100, 887.7165pt x 396.2805pt>
+<GANTT.PNG, id=105, 819.66225pt x 422.17725pt>
 File: GANTT.PNG Graphic file (type png)
 <use GANTT.PNG>
-Package pdftex.def Info: GANTT.PNG  used on input line 181.
-(pdftex.def)             Requested size: 483.69687pt x 215.92928pt.
+Package pdftex.def Info: GANTT.PNG  used on input line 185.
+(pdftex.def)             Requested size: 483.69687pt x 249.13394pt.
  [4] [5 <./GANTT.PNG>]
-<Demarrer_Postgres.PNG, id=117, 443.85825pt x 264.99pt>
+<Demarrer_Postgres.PNG, id=122, 443.85825pt x 264.99pt>
 File: Demarrer_Postgres.PNG Graphic file (type png)
 <use Demarrer_Postgres.PNG>
-Package pdftex.def Info: Demarrer_Postgres.PNG  used on input line 239.
+Package pdftex.def Info: Demarrer_Postgres.PNG  used on input line 244.
 (pdftex.def)             Requested size: 483.69687pt x 288.7808pt.
  [6]
-<Ajouter_base_de_donnees.PNG, id=123, 791.95876pt x 463.7325pt>
+<Ajouter_base_de_donnees.PNG, id=128, 791.95876pt x 463.7325pt>
 File: Ajouter_base_de_donnees.PNG Graphic file (type png)
 <use Ajouter_base_de_donnees.PNG>
-Package pdftex.def Info: Ajouter_base_de_donnees.PNG  used on input line 247.
+Package pdftex.def Info: Ajouter_base_de_donnees.PNG  used on input line 252.
 (pdftex.def)             Requested size: 483.69687pt x 283.2302pt.
  [7 <./Demarrer_Postgres.PNG>]
-<Configuration_Build.PNG, id=131, 665.48625pt x 522.15076pt>
+<Configuration_Build.PNG, id=136, 665.48625pt x 522.15076pt>
 File: Configuration_Build.PNG Graphic file (type png)
 <use Configuration_Build.PNG>
-Package pdftex.def Info: Configuration_Build.PNG  used on input line 256.
+Package pdftex.def Info: Configuration_Build.PNG  used on input line 261.
 (pdftex.def)             Requested size: 483.69687pt x 379.51764pt.
  [8 <./Ajouter_base_de_donnees.PNG>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 263.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 268.
  [9 <./Configuration_Build.PNG>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 263.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 268.
 
-(./Reporte.aux
+(./Rapport.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 263.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 263.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 268.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 268.
+Package rerunfilecheck Info: File `Rapport.out' has not changed.
+(rerunfilecheck)             Checksum: 2F3CADABB906D8380398831E1C81DCBF;1118.
 
-
-Package rerunfilecheck Warning: File `Reporte.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Reporte.out':
-(rerunfilecheck)             Before: DFC9700EE01648D70BC77CC49246A49F;1032
-(rerunfilecheck)             After:  2F3CADABB906D8380398831E1C81DCBF;1118.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 263.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 268.
  ) 
 Here is how much of TeX's memory you used:
- 10728 strings out of 480478
- 159527 string characters out of 5903485
+ 10730 strings out of 480478
+ 159556 string characters out of 5903485
  631827 words of memory out of 5000000
- 26514 multiletter control sequences out of 15000+600000
+ 26515 multiletter control sequences out of 15000+600000
  538623 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,45p,400b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -616,10 +610,10 @@ ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts
 lic/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Reporte.pdf (9 pages, 396722 bytes).
+Output written on Rapport.pdf (9 pages, 382022 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 193 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
