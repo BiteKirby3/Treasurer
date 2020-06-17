@@ -1,0 +1,22 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {0.1}Résumé de l'application.}{3}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}Opérations implémentes}{3}{subsection.0.1.1}%
+\contentsline {subsubsection}{Connexion}{3}{section*.2}%
+\contentsline {subsubsection}{Comptes}{3}{section*.3}%
+\contentsline {subsection}{\numberline {0.1.2}Opérations non implémentes}{3}{subsection.0.1.2}%
+\contentsline {subsubsection}{Transactions}{3}{section*.4}%
+\contentsline {subsubsection}{Rapports}{3}{section*.5}%
+\contentsline {subsubsection}{Clôture}{4}{section*.6}%
+\contentsline {subsubsection}{Déconnexion}{4}{section*.7}%
+\contentsline {subsection}{\numberline {0.1.3}Description de l'architecture}{4}{subsection.0.1.3}%
+\contentsline {subsection}{\numberline {0.1.4}Argumentation de l'architecture permettant plus facilement les évolutions}{4}{subsection.0.1.4}%
+\contentsline {subsection}{\numberline {0.1.5}Base de données}{4}{subsection.0.1.5}%
+\contentsline {subsection}{\numberline {0.1.6}Qt Designer UI}{4}{subsection.0.1.6}%
+\contentsline {section}{\numberline {0.2}Planning du projet}{4}{section.0.2}%
+\contentsline {section}{\numberline {0.3}Contribution personnelle des membres du groupe}{5}{section.0.3}%
+\contentsline {subsection}{\numberline {0.3.1}BENDYNA Lucas}{5}{subsection.0.3.1}%
+\contentsline {subsection}{\numberline {0.3.2}GOURET Mathilde}{5}{subsection.0.3.2}%
+\contentsline {subsection}{\numberline {0.3.3}RAMIREZ Brenda}{6}{subsection.0.3.3}%
+\contentsline {subsection}{\numberline {0.3.4}XIE Sihuan}{6}{subsection.0.3.4}%
+\contentsline {section}{\numberline {0.4}Annexes}{6}{section.0.4}%
+\contentsline {subsection}{\numberline {0.4.1}Installation base de données}{6}{subsection.0.4.1}%
