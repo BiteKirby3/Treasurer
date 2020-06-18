@@ -160,8 +160,13 @@
 	
 	\begin{itemize}
 		\item Base de données:Nous avons choisi une base de données plutôt qu'un table ou document à raison qu'ils sont bien plus efficaces lorsqu'il s'agit de retrouver des informations. Il est possible de les afficher sous forme de formulaires dans l'interface graphique, permettant d'accéder en toute liberté à tous les détails enregistrés.
-		\item Qt Designer UI: Implémentation de UI pour représenter l'interface graphique de l'application à travers d'un éditeur visuel qui permet de positionner et ajuster les widgets plus facilement et comme nous le souhaitons.
-
+		\item Qt Designer UI: Implémentation de UI pour représenter l'interface graphique de l'application à travers d'un éditeur visuel qui permet de positionner et ajuster les widgets plus facilement et comme nous le souhaitons
+		\item Desing Patterns MVC : 
+		Le design pattern MVC permettre de séparer le modèle, la vue et le contrôleur.
+		Le modèle : Il représente les données de l'application, en définissant définit aussi l'interaction avec la base de données et son traitement.
+		La vue : Elle se contente d'afficher les données que lui fournit le modèle.
+		Le contrôleur : Il effectue la synchronisation entre le modèle et les vues.
+		\item Desing Patterns Singleton : Lors du développement de nos logiciels, nous souhaitons sans doute nousus assurer de n'avoir qu'une seule instance de certaines classes dans le cas du Singleton. 
 	\end{itemize}
 	
 	
@@ -175,18 +180,36 @@
 	
 	Au moment de la compilation, ce qui signifie que les formulaires sont convertis en code C ++ qui peut être compilé.
 	Au moment de l'exécution, ce qui signifie que les formulaires sont traités par la classe QUiLoader qui construit dynamiquement l'arborescence des widgets lors de l'analyse du fichier XML.
+	
+	\subsection{Desing Patterns MVC}
+	Le modèle de conception permet principalement deux choses :
+	\begin{itemize}
+		\item Le changement d'une couche sans altérer les autres.  Nous pourrions aussi donc changer le modèle sans toucher à la vue et au contrôleur. Cela rend les modifications plus simples.
+		\item La synchronisation des vues. Avec ce design pattern, toutes les vues qui montrent la même chose sont synchronisées.
 
+	\end{itemize}
+	
+	\subsection{Desing Patterns Singleton}
+	La solution que nous avons trouver est d'utiliser le pattern singleton. En effet celui-ci va, via une de ses méthodes, nous permettre de récupérer l'unique instance de la classe.
+	
 	\section{Planning du projet}
 	
-	Le planning du projet a été planifié à travers d'un diagramme de GANTT réaliser pour tous les membres du groupe
+	Le planning du projet a été planifié à travers d'un diagramme de GANTT réaliser pour tous les membres du groupe.
 	
 	\begin{figure}[H]
 		\begin{center}
 			\includegraphics[width = 1\textwidth]{GANTT.PNG}
-			\captionof{figure}{\label{fig:silla3ruedas}Silla de ruedas para subir escaleras} 
+			\captionof{figure}{\label{fig:gantt}Diagramme GANTT} 
 		\end{center} 
-	\end{figure}
-	
+	\end{figure}.
+
+	\section{Modèle UML}
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width = 1\textwidth]{UML.PNG}
+			\captionof{figure}{\label{fig:uml}Modèle UML} 
+		\end{center} 
+	\end{figure}.
 	
 	\section{Contribution personnelle des membres du groupe}
 
@@ -242,7 +265,7 @@
 		\begin{figure}[H]
 			\begin{center}
 				\includegraphics[width = 1\textwidth]{Demarrer_Postgres.PNG}
-				\captionof{figure}{\label{fig:silla3ruedas}Silla de ruedas para subir escaleras} 
+				\captionof{figure}{\label{fig:demarrerpostgres}Démarrer Postgres} 
 			\end{center} 
 		\end{figure}
 	
@@ -250,7 +273,7 @@
 		\begin{figure}[H]
 			\begin{center}
 				\includegraphics[width = 1\textwidth]{Ajouter_base_de_donnees.PNG}
-				\captionof{figure}{\label{fig:silla3ruedas}Silla de ruedas para subir escaleras} 
+				\captionof{figure}{\label{fig:ajouterbasededonnees}Ajouter base de données} 
 			\end{center} 
 		\end{figure}
 		
@@ -259,7 +282,7 @@
 		\begin{figure}[H]
 			\begin{center}
 				\includegraphics[width = 1\textwidth]{Configuration_Build.PNG}
-				\captionof{figure}{\label{fig:silla3ruedas}Silla de ruedas para subir escaleras} 
+				\captionof{figure}{\label{fig:configurationbuild}Configuration Build} 
 			\end{center} 
 		\end{figure}
 	\end{itemize}
