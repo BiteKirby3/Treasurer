@@ -1,8 +1,25 @@
-#include <QCoreApplication>
+#include <QtSql>
+#include <iostream>
+#include <QApplication>
+#include <QPushButton>
 
-int main(int argc, char *argv[])
+#include "connexionview.h"
+#include "rapprochercomptemodal.h"
+#include "databasemanager.h"
+
+using namespace std;
+
+int main(int countArg, char **listArg)
 {
-    QCoreApplication a(argc, argv);
+    QApplication app(countArg, listArg);
 
-    return a.exec();
+    DatabaseManager* dm = DatabaseManager::getInstance();
+
+    if(dm->login())
+    {
+        ConnexionView* connexion = new ConnexionView;
+        connexion->show();
+    }
+
+    return app.exec();
 }

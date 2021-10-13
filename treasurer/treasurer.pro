@@ -1,7 +1,13 @@
-QT -= gui
+QT += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += sql
+
+TARGET = test # La cible de compilation, le résultat
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
+
+TEMPLATE = app # On veut une application, oui
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -15,9 +21,46 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        main.cpp
+        ajoutercomptemodal.cpp \
+        compte.cpp \
+        comptecontroller.cpp \
+        comptesview.cpp \
+        compteview.cpp \
+        connexionview.cpp \
+        databasemanager.cpp \
+        editercomptemodal.cpp \
+        main.cpp \
+        rapprochercomptemodal.cpp \
+        transaction.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+FORMS += \
+    ajoutercomptemodal.ui \
+    comptesview.ui \
+    compteview.ui \
+    connexionview.ui \
+    editercomptemodal.ui \
+    rapprochercomptemodal.ui
+
+HEADERS += \
+    ajoutercomptemodal.h \
+    compte.h \
+    comptecontroller.h \
+    comptesview.h \
+    compteview.h \
+    connexionview.h \
+    databasemanager.h \
+    editercomptemodal.h \
+    rapprochercomptemodal.h \
+    transaction.h
+
+RC_ICONS = ../ressources/logo.ico
+
+
+
+
+
