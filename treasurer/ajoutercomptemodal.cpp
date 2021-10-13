@@ -42,14 +42,23 @@ void AjouterCompteModal::setComptesCapitauxPropres()
 
     foreach (Compte compte, comptes)
     {
-        ui->comptesCapitauxPropres->addItem(compte.getNom(), compte.getId());
+        if(!compte.isVirtuel())
+        {
+             ui->comptesCapitauxPropres->addItem(compte.getNom(), compte.getId());
+        }
     }
 }
 
 void AjouterCompteModal::on_validate_button_clicked()
 {
     CompteView* parent = qobject_cast<CompteView*>(this->parent());
-    Compte::ajouterCompte(ui->virtuel->isChecked(), parent->getTypeCompte(), ui->nom->text(),  ui->soldeInitial->text().toDouble(), ui->compteParent->currentData().toInt());
+    int idC=Compte::ajouterCompte(ui->virtuel->isChecked(), parent->getTypeCompte(), ui->nom->text(),  ui->soldeInitial->text().toDouble(), ui->compteParent->currentData().toInt());
+    if(ui->soldeInitial->text().toDouble()!=0 && !ui->soldeInitial->text().isEmpty()){
+        QString reference="soldeIni"+ ui->nom->text();
+        QString titre="Solde initiale du compte "+ ui->nom->text();
+        int idT = Transaction::ajouterOperation(ui->comptesCapitauxPropres->currentData().toInt(),reference,titre,ui->soldeInitial->text().toDouble(), 0);
+        Transaction::ajouterOperation(idC,idT,0, ui->soldeInitial->text().toDouble());
+    }
     parent->creerArborescence();
     this->close();
 }

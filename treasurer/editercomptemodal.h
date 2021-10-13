@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "compteview.h"
+#include <QMessageBox>
+#include <stdexcept>
 
 namespace Ui {
 class EditerCompteModal;

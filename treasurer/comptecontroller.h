@@ -18,6 +18,7 @@ public:
     double getSoldeComptes(QString type);
     void setIdAssociation(int id);
     void setSoldes();
+    void setViewLogout(QString view);
 
 private:
     CompteController();

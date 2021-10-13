@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CompteView</class>
- <widget class="QMainWindow" name="CompteView">
+ <class>TransactionView</class>
+ <widget class="QMainWindow" name="TransactionView">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Treasurer - Compte</string>
+   <string>Treasurer - Transaction</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background: #ffffff;</string>
@@ -215,55 +215,6 @@ background:#ffffff;
            <number>0</number>
           </property>
           <item>
-           <widget class="QTreeView" name="arborescence">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>250</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>250</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Raleway</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QTreeView{
-background: #f5f5f5;
-border: none;
-border-right-color: #000000;
-border-right-style: solid;
-border-right-width: 1px;
-}</string>
-            </property>
-            <property name="editTriggers">
-             <set>QAbstractItemView::NoEditTriggers</set>
-            </property>
-            <property name="autoExpandDelay">
-             <number>-1</number>
-            </property>
-            <property name="itemsExpandable">
-             <bool>true</bool>
-            </property>
-            <property name="headerHidden">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QWidget" name="widget_3" native="true">
             <property name="minimumSize">
              <size>
@@ -329,45 +280,6 @@ border: none;
                 </property>
                 <property name="text">
                  <string>AJOUTER</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="edit_button">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>120</width>
-                  <height>31</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>120</width>
-                  <height>31</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Raleway</family>
-                  <pointsize>11</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton{
-background : #535353;
-color : #FFFFFF;
-font-weight: bold;
-border-radius: 5px;
-border: none;
-}</string>
-                </property>
-                <property name="text">
-                 <string>EDITER</string>
                 </property>
                </widget>
               </item>
@@ -437,7 +349,7 @@ border: none;
                  <string notr="true">color: #1556C7;</string>
                 </property>
                 <property name="text">
-                 <string>ACTIFS</string>
+                 <string>TRANSACTIONS</string>
                 </property>
                </widget>
               </item>
@@ -489,93 +401,10 @@ border: none;
              <number>30</number>
             </property>
             <item>
-             <widget class="QLabel" name="compteLabel">
-              <property name="font">
-               <font>
-                <family>Raleway</family>
-                <pointsize>14</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-            <item>
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <property name="spacing">
                <number>0</number>
               </property>
-              <item>
-               <widget class="QLabel" name="label_4">
-                <property name="font">
-                 <font>
-                  <family>Raleway</family>
-                  <pointsize>11</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Dernière modification&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_16">
-                <property name="spacing">
-                 <number>0</number>
-                </property>
-                <property name="leftMargin">
-                 <number>30</number>
-                </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
-                <item>
-                 <spacer name="horizontalSpacer_7">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QLabel" name="DerniereModificationLabel">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                    <pointsize>11</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
              </layout>
             </item>
            </layout>
@@ -635,59 +464,7 @@ border: none;
              <number>25</number>
             </property>
             <item>
-             <spacer name="horizontalSpacer_9">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="rapprocher_button">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>120</width>
-                <height>31</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>120</width>
-                <height>31</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Raleway</family>
-                <pointsize>11</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton{
-background : #535353;
-color : #FFFFFF;
-font-weight: bold;
-border-radius: 5px;
-border: none;
-}</string>
-              </property>
-              <property name="text">
-               <string>RAPPROCHER</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_8">
+             <spacer name="horizontalSpacer_4">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -716,7 +493,7 @@ border: none;
               <property name="font">
                <font>
                 <family>Raleway</family>
-                <pointsize>11</pointsize>
+                <pointsize>12</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
                </font>
@@ -731,7 +508,7 @@ border: none;
 }</string>
               </property>
               <property name="text">
-               <string>TRANSACTION</string>
+               <string>AJOUTER</string>
               </property>
              </widget>
             </item>
@@ -765,7 +542,7 @@ border: none;
               <property name="font">
                <font>
                 <family>Raleway</family>
-                <pointsize>11</pointsize>
+                <pointsize>12</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
                </font>

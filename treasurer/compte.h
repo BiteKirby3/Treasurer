@@ -5,23 +5,30 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlError>
+#include <stdexcept>
 
 #include "comptecontroller.h"
+#include "operation.h"
 
 class Compte
 {
 public:
     Compte() {};
     Compte(int id, double solde, double soldeDernierRapprochement, QDate dernierRapprochement, QString type, QString nom, QDate derniereModification, bool virtuel, int idParent);
+    static QString getNom(int idCompte);
     static QVector<Compte> getComptes(QString typeCompte);
     static QVector<Compte> getComptesVirtuels(QString typeCompte);
+    static QVector<Compte> getComptesNonVirtuels();
     static Compte getCompte(int idCompte);
     static void deleteCompte(int idCompte);
     static void editCompte(int id, QString nom, int idCompteParent, bool virtuel);
     static void editDerniereModification(int idCompte);
-    static void ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent);
+    static int ajouterCompte(bool virtuel, QString typeCompte, QString nom, double solde, int idCompteParent);
+    double calculerSolde();
+    void updateSolde(double solde);
     int getId();
     double getSolde();
+    void setSolde(double solde);
     double getSoldeDernierRapprochement();
     QDate getDernierRapprochement();
     QString getType();
